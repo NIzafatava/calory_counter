@@ -27,11 +27,11 @@ class ExerciseFilter(django_filters.FilterSet):
 
 class FoodSelectFilter(AutocompleteFilter):
     title = 'Food select'
-    field_name = 'food_selected' # name of the foreign key field
+    field_name = 'food_selected'
 
 
 class FoodAdmin(admin.ModelAdmin):
-    search_fields = ['name'] # this is required for django's autocomplete functionality
+    search_fields = ['name']
 
 
 
