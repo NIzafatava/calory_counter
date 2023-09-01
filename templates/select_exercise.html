@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="login mt-0">
+        <div class="login-screen">
+            <div class="app-title">
+                <h1 class="headline">Select Exercise</h1>
+            </div>
+            <div>
+            <form method="POST" action="" class="login-form">
+              {% csrf_token %}
+            </div>
+{##}
+{#            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>#}
+{#            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
+{#            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />#}
+{#                 <script>#}
+{#                     $(document).ready(function()#}
+{#                     {#}
+{#                         $(#selectfood).select2();#}
+{#                     });#}
+{#                 </script>#}
+{#                  <select id="selectfood">#}
+{#                      <option selected disabled="true">select food </option>#}
+{#                      {% for food in food_items %}#}
+{#                      <option>{{ food.name}}</option>#}
+{#                      {% endfor %}#}
+{##}
+{#                  </select>#}
+{#         <h5 class="form-labels">#}
+{##}
+{#                {{ form.quantity}}#}
+{#             {{ form.meat_type }}#}
+             {{ form.as_p }}
+                  <div>
+{#                  <label for="quantity">Choose quantity:</label>#}
+{#                {{ form.quantity}}#}
+{#                  </div>#}
+{#                  <label for="meat_type">Choose a meat type:</label>#}
+{##}
+{#                <select name="form.meat_type" id="">#}
+{#                  <option value="form">Breakfast</option>#}
+{#                  <option value="brunch">Brunch</option>#}
+{#                  <option value="lunch">Lunch</option>#}
+{#                  <option value="dinner">Dinner</option>#}
+{#                    <option value="supper">Supper</option>#}
+{#                    <option value="snacks">Snacks</option>#}
+{#                </select>#}
+            </h5>
+                <input class="btn login_btn pt-2" type="submit" value="select">
+
+            </form>
+        </div>
+
+    </div>
+{#    <div class="container-fluid">#}
+{#   <h1 class="headline text-center pb-3">All Exercises </h1>#}
+{#        <table class="table table-bordered text-center">#}
+{#            <thead class="thead-dark">#}
+{#                <tr>#}
+{#                    <th scope="col">Meat Type</th>#}
+{#                    <th scope="col">Food Name</th>#}
+{#                    <th scope="col">Calories</th>#}
+{#                    <th scope="col">Quantity</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#                {% for food in food_items %}#}
+{#                <tr>#}
+{#                    <td>{{ food.meat_type }}</td>#}
+{#                    <td>{{ food.name }}</td>#}
+{#                    <td>{{ food.calorie }}</td>#}
+{#                    <td>{{ food.quantity }}</td>#}
+{##}
+{#                </tr>#}
+{#                {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#     </div>#}
+{##}
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'recipes_view.css' %}">
+{% endblock css %}
+
+{% block content %}
+    <div class="container">
+    <div class="row" >
+    <div class="col-lg-6" style="max-width: 100%; flex: none">
+    <div class="login">
+        <div class="login-screen" style='width: 245px'>
+            <div class="app-title">
+                <h1 class="headline">Add New Recipe</h1>
+            </div>
+
+            <form method="POST" action="" class="login-form form-inline" >
+              {% csrf_token %}
+
+                {% for field in form %}
+                <h5 class="form-labels" >
+{#                {{ field.label }}#}
+                </h5>
+                 {{ field }}
+                {% endfor %}
+
+                <input class="btn mt-2" type="submit" value="add">
+
+            </form>
+
+        </div>
+
+    </div>
+    </div>
+
+    {% for receipe in all_receipes %}
+        <div class="card" style="width: 18rem; height: 500px; margin: 20px; float: left">
+      <img src={{ receipe.img_url.url }}  class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ receipe.name }}</h5>
+
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="color: black">difficulty level: {{ receipe.difficulty_level }}</li>
+        <li class="list-group-item" style="color: black">cooking time: {{ receipe.time}} minutes</li>
+        <li class="list-group-item" style="color: black">calories {{ receipe.calorie}} ccal</li>
+      </ul>
+      <div class="card-body">
+        <a href="{% url 'calory_counter:show' receipe.id %}" class="card-link">Watch recipe</a>
+          <a href="" class="card-link">Add to your menu</a>
+
+      </div>
+    </div>
+
+    {% endfor %}
+
+{% endblock content %}

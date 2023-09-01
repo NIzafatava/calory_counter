@@ -1,0 +1,461 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 id="username" class="text-center mt-4 headline">Hi {{ request.user }}<sub><a href="{% url "user:logout" %}">(Logout)</a></sub></h1>
+
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 item ">
+      <div class="card item-card card-block">
+        <h5 class="card-title mt-3 mb-3 text-center">Total Calories Consumed Today</h5>
+        <p class="card-text text-center">{{ total_calorie }} cal</p>
+{#          <h5 class="card-title mt-3 mb-3 text-center">Total Calories Burned Today</h5>#}
+{#        <p class="card-text text-center">{{ total_calorie_burned }} cal</p>#}
+    </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 item">
+      <div class="card item-card card-block mt-sm-2 mt-lg-0">
+        <h5 class="card-title  mt-3 mb-3 text-center">Calorie Goal For Today</h5>
+        <p class="card-text text-center">{{ calorie_goal }} cal</p>
+  </div>
+    </div>
+  </div>
+  
+</div>
+
+ <div class="container mt-2">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 item ">
+      <div class="card item-card card-block">
+        <h5 class="card-title mt-3 mb-3 text-center">Total Water Consumed Today</h5>
+
+        <p class="card-text text-center">{{ water_current}} litre</p>
+    </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 item">
+      <div class="card item-card card-block mt-sm-2 mt-lg-0">
+        <h5 class="card-title  mt-3 mb-3 text-center">Water Goal For Today</h5>
+        <p class="card-text text-center">{{ water_goal }} litre</p>
+
+  </div>
+    </div>
+  </div>
+
+</div>
+
+          <div class="card text-white text-center mt-4"  style="border-radius: 20px;">
+
+        <div class="card-body">
+
+          <p class="card-text text-center pt-3" style="font-size:22px">
+          {% if calorie_goal_status > 0 and water_goal_status > 0 %}
+      You need  {{ calorie_goal_status }} calories and {{ water_goal_status }} litres more to reach your goal
+      {% elif calorie_goal == 0 or water_goal == 0 %}
+      <a href="{% url "profile" %}"> Enter your calorie/ water goal for the day </a>
+      {% else %}
+      You surpassed your goal by {{ over_calorie }} calories
+      {% endif %} </p>
+
+        </div>
+
+      </div>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 item ">
+      <div class="card item-card card-block">
+        <h5 class="card-title mt-3 mb-3 text-center">Current weight</h5>
+        <p class="card-text text-center">{{ current_weight }}</p>
+    </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 item">
+      <div class="card item-card card-block mt-sm-2 mt-lg-0">
+        <h5 class="card-title  mt-3 mb-3 text-center">Weight Goal</h5>
+        <p class="card-text text-center">{{ weight_goal }}</p>
+  </div>
+    </div>
+  </div>
+
+</div>
+
+          <div class="card text-white text-center mt-4"  style="border-radius: 20px;">
+
+        <div class="card-body">
+
+          <p class="card-text text-center pt-3" style="font-size:22px">
+          {% if weight_goal_status > 0 %}
+      You need to burn off {{ weight_goal_status }} kg to reach your goal
+      {% elif weight_goal == 0 %}
+      <a href="{% url "calory_counter:profile" %}"> Enter your weight goal </a>
+      {% else %}
+      You surpassed your goal
+      {% endif %} </p>
+
+        </div>
+    </div>
+<h1 class="headline text-center mt-auto mb-auto">All Exercises Today </h1>
+<div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Exercise</th>
+      <th scope="col">Time</th>
+      <th scope="col">Calories </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <div class="flex-box-row">
+    <h5 id="heading">Exercise</h5>
+{#    <table class="table table-sm">#}
+    {% for exercise in all_exercises_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ exercise.exercise.name }}</td>
+      <td> {{ exercise.time }}</td>
+      <td> {{ exercise.calorie_amount }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h1 class="headline text-center mt-auto mb-auto">All Food Consumed Today </h1>
+<div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Food</th>
+      <th scope="col">Calorie</th>
+      <th scope="col">Carbohydrate </th>
+      <th scope="col">Fats</th>
+      <th scope="col">Protein </th>
+    </tr>
+  </thead>
+  <tbody>
+<div>{{ food_selected_today.food.fats }}</div>
+    <div class="flex-box-row">
+    <h5 id="heading">Breakfast</h5>
+{#    <table class="table table-sm">#}
+    {% for food in breakfast_all_food_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ food.food.name }}</td>
+      <td> {{ food.calorie_amount }}</td>
+      <td> {{ food.food.carbohydrate }}</td>
+      <td> {{ food.food.fats }}</td>
+      <td> {{ food.food.protein }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Food</th>
+      <th scope="col">Calorie</th>
+      <th scope="col">Carbohydrate </th>
+      <th scope="col">Fats</th>
+      <th scope="col">Protein </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+
+    <div class="flex-box-row">
+    <h5 id="heading">Brunch</h5>
+{#    <table class="table table-sm">#}
+    {% for food in brunch_all_food_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ food.food.name }}</td>
+      <td> {{ food.calorie_amount }}</td>
+      <td> {{ food.food.carbohydrate }}</td>
+      <td> {{ food.food.fats }}</td>
+      <td> {{ food.food.protein }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+    <div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Food</th>
+      <th scope="col">Calorie</th>
+      <th scope="col">Carbohydrate </th>
+      <th scope="col">Fats</th>
+      <th scope="col">Protein </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+
+    <div class="flex-box-row">
+    <h5 id="heading">Lunch</h5>
+{#    <table class="table table-sm">#}
+    {% for food in lunch_all_food_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ food.food.name }}</td>
+      <td> {{ food.calorie_amount }}</td>
+      <td> {{ food.food.carbohydrate }}</td>
+      <td> {{ food.food.fats }}</td>
+      <td> {{ food.food.protein }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+    <div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Food</th>
+      <th scope="col">Calorie</th>
+      <th scope="col">Carbohydrate </th>
+      <th scope="col">Fats</th>
+      <th scope="col">Protein </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+
+    <div class="flex-box-row">
+    <h5 id="heading">Dinner</h5>
+{#    <table class="table table-sm">#}
+    {% for food in dinner_all_food_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ food.food.name }}</td>
+      <td> {{ food.calorie_amount }}</td>
+      <td> {{ food.food.carbohydrate }}</td>
+      <td> {{ food.food.fats }}</td>
+      <td> {{ food.food.protein }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+    <div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Food</th>
+      <th scope="col">Calorie</th>
+      <th scope="col">Carbohydrate </th>
+      <th scope="col">Fats</th>
+      <th scope="col">Protein </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+
+    <div class="flex-box-row">
+    <h5 id="heading">Supper</h5>
+{#    <table class="table table-sm">#}
+    {% for food in supper_all_food_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ food.food.name }}</td>
+      <td> {{ food.calorie_amount }}</td>
+      <td> {{ food.food.carbohydrate }}</td>
+      <td> {{ food.food.fats }}</td>
+      <td> {{ food.food.protein }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+    <div class="container table-responsive py-5">
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr class="text-center">
+{#        <th scope="col">Meat type</th>#}
+      <th scope="col">Food</th>
+      <th scope="col">Calorie</th>
+      <th scope="col">Carbohydrate </th>
+      <th scope="col">Fats</th>
+      <th scope="col">Protein </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+
+    <div class="flex-box-row">
+    <h5 id="heading">Snacks</h5>
+{#    <table class="table table-sm">#}
+    {% for food in snacks_all_food_today %}
+    <tr class="text-center">
+{#      <td> {{ food.meat_type }}</td>#}
+      <td> {{ food.food.name }}</td>
+      <td> {{ food.calorie_amount }}</td>
+      <td> {{ food.food.carbohydrate }}</td>
+      <td> {{ food.food.fats }}</td>
+      <td> {{ food.food.protein }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{#      <div class="flex-box-row">#}
+{#            <h5 id="heading">Breakfast</h5>#}
+{#               <table class="table table-sm">#}
+{#                    <tr>#}
+{#                        <th>Meat type</th>#}
+{#                        <th>Food name</th>#}
+{#                        <th>Calorie</th>#}
+{#                        <th>Protien</th>#}
+{#                        <th>Fats</th>#}
+{##}
+{#                    </tr>#}
+{##}
+{#                   {% for food in food_selected_today %}#}
+{#                    <tr>#}
+{#                        <td>{{food.meat_type}} </td>#}
+{#                        <td>{{food.food.name}} </td>#}
+{#                        <td>{{food.calorie_amount}} </td>#}
+{#                       <td>{{food.calorie_amount}} </td>#}
+{#                        <td>{{breakfast.protein}} </td>#}
+{#                        <td>{{breakfast.calorie}} </td>#}
+{#                        </tr>#}
+{##}
+{#                    {% endfor %}#}
+{#                </table>#}
+{#        </div>#}
+{#<br>#}
+{#<div class="flex-box-row">#}
+{#            <h5 id="heading">Brunch</h5>#}
+{#               <table class="table table-sm">#}
+{#                    <tr>#}
+{#                        <th>Name</th>#}
+{#                        <th>Carbohydrate</th>#}
+{#                        <th>Fats</th>#}
+{#                        <th>Protien</th>#}
+{#                        <th>Calorie</th>#}
+{##}
+{#                    </tr>#}
+{#                   {% for items in brunch %}#}
+{#                    <tr>#}
+{#                        <td>{{items.name}} </td>#}
+{#                        <td>{{items.carbohydrate}} </td>#}
+{#                        <td>{{items.fats}} </td>#}
+{#                        <td>{{items.protein}} </td>#}
+{#                        <td>{{items.calorie}} </td>#}
+{#                        </tr>#}
+{##}
+{#                    {% endfor %}#}
+{#                </table>#}
+{#        </div>#}
+{#<br>#}
+{#    <div class="flex-box-row">#}
+{#            <h5 id="heading">Lunch</h5>#}
+{#               <table class="table table-sm">#}
+{#                    <tr>#}
+{#                        <th>Name</th>#}
+{#                        <th>Carbohydrate</th>#}
+{#                        <th>Fats</th>#}
+{#                        <th>Protien</th>#}
+{#                        <th>Calorie</th>#}
+{##}
+{#                    </tr>#}
+{#                   {% for items in lunch %}#}
+{#                    <tr>#}
+{#                        <td>{{items.name}} </td>#}
+{#                        <td>{{items.carbohydrate}} </td>#}
+{#                        <td>{{items.fats}} </td>#}
+{#                        <td>{{items.protein}} </td>#}
+{#                        <td>{{items.calorie}} </td>#}
+{#                        </tr>#}
+{##}
+{#                    {% endfor %}#}
+{#                </table>#}
+{#        </div>#}
+{#<br>#}
+{#    <div class="flex-box-row">#}
+{#            <h5 id="heading">Dinner</h5>#}
+{#               <table class="table table-sm">#}
+{#                    <tr>#}
+{#                        <th>Name</th>#}
+{#                        <th>Carbohydrate</th>#}
+{#                        <th>Fats</th>#}
+{#                        <th>Protien</th>#}
+{#                        <th>Calorie</th>#}
+{##}
+{#                    </tr>#}
+{#                   {% for items in dinner %}#}
+{#                    <tr>#}
+{#                        <td>{{items.name}} </td>#}
+{#                        <td>{{items.carbohydrate}} </td>#}
+{#                        <td>{{items.fats}} </td>#}
+{#                        <td>{{items.protein}} </td>#}
+{#                        <td>{{items.calorie}} </td>#}
+{#                        </tr>#}
+{##}
+{#                    {% endfor %}#}
+{#                </table>#}
+{#        </div>#}
+{#<br>#}
+{#    <div class="flex-box-row">#}
+{#            <h5 id="heading">Supper</h5>#}
+{#               <table class="table table-sm">#}
+{#                    <tr>#}
+{#                        <th>Name</th>#}
+{#                        <th>Carbohydrate</th>#}
+{#                        <th>Fats</th>#}
+{#                        <th>Protien</th>#}
+{#                        <th>Calorie</th>#}
+{##}
+{#                    </tr>#}
+{#                   {% for items in supper %}#}
+{#                    <tr>#}
+{#                        <td>{{items.name}} </td>#}
+{#                        <td>{{items.carbohydrate}} </td>#}
+{#                        <td>{{items.fats}} </td>#}
+{#                        <td>{{items.protein}} </td>#}
+{#                        <td>{{items.calorie}} </td>#}
+{#                        </tr>#}
+{##}
+{#                    {% endfor %}#}
+{#                </table>#}
+{#        </div>#}
+{#<br>#}
+{#    <div class="flex-box-row">#}
+{#            <h5 id="heading">Snacks</h5>#}
+{#               <table class="table table-sm">#}
+{#                    <tr>#}
+{#                        <th>Name</th>#}
+{#                        <th>Carbohydrate</th>#}
+{#                        <th>Fats</th>#}
+{#                        <th>Protien</th>#}
+{#                        <th>Calorie</th>#}
+{##}
+{#                    </tr>#}
+{#                   {% for items in snacks %}#}
+{#                    <tr>#}
+{#                        <td>{{items.name}} </td>#}
+{#                        <td>{{items.carbohydrate}} </td>#}
+{#                        <td>{{items.fats}} </td>#}
+{#                        <td>{{items.protein}} </td>#}
+{#                        <td>{{items.calorie}} </td>#}
+{#                        </tr>#}
+{##}
+{#                    {% endfor %}#}
+{#                </table>#}
+{#        </div>#}
+{#<br>#}
+{% endblock content %}

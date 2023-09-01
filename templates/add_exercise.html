@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-lg-6">
+    <div class="login">
+        <div class="login-screen">
+            <div class="app-title">
+                <h1 class="headline">Add New Exercise</h1>
+            </div>
+
+            <form method="POST" action="" class="login-form form-inline">
+              {% csrf_token %}
+              
+                {% for field in form %}
+                <h5 class="form-labels">
+                {{ field.label }}
+                </h5>
+                {{ field }}
+                 
+                {% endfor %}
+           
+                <input class="btn mt-2" type="submit" value="add">
+
+            </form>
+           
+        </div>
+        
+    </div>
+    </div>
+    <div class="col-lg-6 ">
+    <div class="login">
+        <div class="login-screen">
+              <form method="get">
+                  <h1 class="headline">{{ myFilter.form }}</h1>
+                  <button class="btn mt-2" type="submit">Search</button>
+              </form> 
+        </div>
+    </div>
+
+        <h1 class="headline"> All Exercises</h1>
+        <table class="table table-bordered text-center mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Exercise Name</th>
+{#                    <th scope="col">Time (hours)</th>#}
+                    <th scope="col">Calories (for 1 hour)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercise in exercise_items %}
+                <tr>
+                    <td>{{ exercise.name }}</td>
+                    <td>{{ exercise.calorie }}</td>
+
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+</div>
+</div>
+{% endblock content %}
