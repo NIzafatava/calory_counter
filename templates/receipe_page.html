@@ -8,6 +8,8 @@
 {% endblock css %}
 
 {% block content %}
+
+
     <div class="container">
     <div class="row" >
     <div class="col-lg-6" style="max-width: 100%; flex: none">
@@ -50,11 +52,19 @@
       </ul>
       <div class="card-body">
         <a href="{% url 'calory_counter:show' receipe.id %}" class="card-link">Watch recipe</a>
-          <a href="" class="card-link">Add to your menu</a>
+          <a href="{% url 'calory_counter:add_recipe' receipe.id %}" class="card-link">Add to your menu</a>
 
       </div>
     </div>
 
     {% endfor %}
-
+{#    <h2>Add Recipe:</h2>#}
+{#      <ul>#}
+{#        {% for recipe in all_receipes %}#}
+{#          <li>#}
+{#            {{ recipe.name }}#}
+{#            <a href="{% url 'calory_counter:add_recipe' recipe.id %}">Add</a>#}
+{#          </li>#}
+{#        {% endfor %}#}
+{#      </ul>#}
 {% endblock content %}

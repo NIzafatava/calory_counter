@@ -1,7 +1,10 @@
 from django.urls import path
 
-from .views import HomePageView, select_food, add_food, ProfilePage, update_food, delete_food, add_exercise, \
-	select_exercise, receipe_view, RecipeDetailView
+from .views import (HomePageView, select_food, add_food, ProfilePage, update_food, delete_food, add_exercise, \
+	select_exercise, receipe_view, RecipeDetailView, add_recipe_to_profile, get_statistics_calorie,
+					get_statistic_view, get_statistics_weight)
+
+
 
 app_name = 'calory_counter'
 
@@ -16,4 +19,8 @@ urlpatterns = [
 	path('profile/',ProfilePage,name='profile'),
 	path('receipes/',receipe_view,name='receipes'),
 	path('receipes/<int:recipe_id>/', RecipeDetailView.as_view(), name='show'),
+	path('add_recipe/<int:recipe_id>/', add_recipe_to_profile, name='add_recipe'),
+	path('statistics/', get_statistics_calorie, name ='statistics_calorie'),
+	path('statistics_weight/', get_statistics_weight, name='statistics_weight'),
+	path('statistics_view/', get_statistic_view, name='statistics_view'),
 ]

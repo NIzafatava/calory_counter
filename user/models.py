@@ -9,6 +9,7 @@ class Profile(models.Model):
     goal_weight = models.IntegerField(default=0, blank=True)
     calorie_count = models.FloatField(default=0, blank=True)
     food_selected = models.ForeignKey(Food, on_delete=models.CASCADE, null=True, blank=True)
+    recipe_selected = models.ForeignKey(Receipe, on_delete=models.CASCADE, null=True, blank=True)
     exercises_selected = models.ForeignKey(Exercise, on_delete=models.CASCADE, null=True, blank=True)
     time_hour_exercise = models.IntegerField(default=0, blank=True)
     calorie_exercise = models.FloatField(null=False, default=0)
@@ -18,6 +19,8 @@ class Profile(models.Model):
     date = models.DateField(auto_now_add=True)
     calorie_goal = models.PositiveIntegerField(default=1500, blank=True)
     all_food_selected_today = models.ManyToManyField(Food, through='PostFood', related_name='inventory')
+    # all_recipe_selected_today = models.ManyToManyField(Receipe, through='PostRecipe', related_name='inventory')
+    all_recipe_selected_today = models.ManyToManyField(Receipe, through='PostFood', related_name='inventory')
     meat_type_choices = (
         ('breakfast', 'breakfast'),
         ('brunch', 'brunch'),
@@ -48,12 +51,26 @@ class Profile(models.Model):
             self.total_calorie_exercise = self.calorie_count*self.total_calorie_exercise
             PostExercise.objects.create(profile=calories, exercise=self.exercises_selected, calorie_amount=self.calorie_count,
                                     time=self.time_hour_exercise)
-            # PostExercise.objects.create(profile=calories, exercise=self.exercises_selected,
-            #                             calorie_amount=self.time_hour_exercise * self.exercises_selected.calorie,
-            #                             time=self.time_hour_exercise)
-            # PostExercise.objects.create(profile=calories, exercise=self.exercises_selected)
             self.exercises_selected = None
             super(Profile, self).save(*args, **kwargs)
+        # if self.recipe_selected != None:
+        #     calories = Profile.objects.filter(person_of=self.person_of).last()
+        #     self.amount = (self.exercises_selected.calorie / self.exercises_selected.time_hour)
+        #     self.calorie_count = self.amount * self.time_hour_exercise
+        #     self.total_calorie_exercise = self.calorie_count*self.total_calorie_exercise
+        #     PostRecipe.objects.create(profile=calories, recipe=self.recipe_selected, calorie_amount=self.recipe_selected.calorie,
+        #                             amount = self.recipe_selected.portion, meat_type=self.meat_type)
+        #     self.recipe_selected = None
+        #     super(Profile, self).save(*args, **kwargs)
+        # if self.recipe_selected != None:
+        #     # calories = Profile.objects.filter(person_of=self.person_of).last()
+        #     # self.amount = (self.exercises_selected.calorie / self.exercises_selected.time_hour)
+        #     # self.calorie_count = self.amount * self.time_hour_exercise
+        #     # self.total_calorie_exercise = self.calorie_count*self.total_calorie_exercise
+        #     PostFood.objects.create(profile=calories, food=self.recipe_selected, calorie_amount=self.recipe_selected.calorie,
+        #                             amount = self.recipe_selected.portion, meat_type=self.meat_type)
+        #     self.recipe_selected = None
+        #     super(Profile, self).save(*args, **kwargs)
         else:
             super(Profile, self).save(*args, **kwargs)
 
@@ -73,11 +90,18 @@ post_save.connect(create_profile, sender=User)
 
 class PostFood(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    food = models.ForeignKey(Food, on_delete=models.CASCADE)
+    food = models.ForeignKey(Food, on_delete=models.CASCADE, null=True, blank=True)
+    recipe = models.ForeignKey(Receipe, on_delete=models.CASCADE, null=True, blank=True)
     calorie_amount = models.FloatField(default=0, null=True, blank=True)
-    amount = models.FloatField(default=0)
+    amount = models.FloatField(default=1)
     meat_type = models. CharField(max_length=50)
 
+class PostRecipe(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Receipe, on_delete=models.CASCADE)
+    calorie_amount = models.FloatField(default=0, null=True, blank=True)
+    amount = models.FloatField(default=1)
+    meat_type = models. CharField(max_length=50)
 
 class PostExercise(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)

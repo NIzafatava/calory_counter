@@ -39,6 +39,7 @@
               <li class="nav-item"><a class="nav-link {% if url_name == 'add_food' %} active{% endif %}" href={% url "calory_counter:add_food" %}>Add Food</a></li>
               <li class="nav-item"><a class="nav-link {% if url_name == 'add_exercise' %} active{% endif %}" href={% url "calory_counter:add_exercise" %}>Add exercise</a></li>
               <li class="nav-item"><a class="nav-link {% if url_name == 'receipes' %} active{% endif %}" href={% url "calory_counter:receipes" %}>Recipes</a></li>
+              <li class="nav-item"><a class="nav-link {% if url_name == 'statistics_view' %} active{% endif %}" href={% url "calory_counter:statistics_view" %}>Statistics</a></li>
               {% endwith %}
             </ul>
             </div>

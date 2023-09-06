@@ -46,3 +46,8 @@ class Receipe(models.Model):
     difficulty_level = models.CharField(max_length=50, choices=difficulty_level_options, default='medium')
     ingredients = models.TextField(max_length=1000000, null=True, blank=True)
     img_url = models.ImageField(upload_to='static/recipes', null=True, blank=True, default='static/recipes/no image.jpeg')
+    person_of = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.name

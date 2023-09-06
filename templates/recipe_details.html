@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="row">
+	<div class="row" style="float: left; padding-right: 50px">
 	  <div class="col-md-10 col-md-offset-1 text-center" style="max-width:none; flex: none;">
 		<h2>{{ recipe.name }}</h2>
+
+
+
           <p><img style="float:left; margin-left: 200px" src={{ recipe.img_url.url }}></p>
 
         <p>
-	  </div>
+    </div>
 	</div>
     <div class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">

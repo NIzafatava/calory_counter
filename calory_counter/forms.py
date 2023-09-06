@@ -22,6 +22,15 @@ class SelectFoodForm(forms.ModelForm):
         # self.fields['food_selected'].queryset = Food.objects.filter(person_of=user)
         self.fields['food_selected'].queryset = Food.objects.all().order_by('name')
 
+# class SelectRecipeForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         fields = ('recipe_selected', 'quantity','meat_type',)
+#
+#     def __init__(self, user, *args, **kwargs):
+#         super(SelectRecipeForm, self).__init__(*args, **kwargs)
+#         # self.fields['food_selected'].queryset = Food.objects.filter(person_of=user)
+#         self.fields['recipe_selected'].queryset = Receipe.objects.all().order_by('name')
 
 class SelectExerciseForm(forms.ModelForm):
     class Meta:
@@ -61,7 +70,8 @@ class AddRecipeForm(forms.ModelForm):
 class AddFoodForm(forms.ModelForm):
     class Meta:
         model = Food
-        fields = ('name', 'measure', 'calorie', 'carbohydrate', 'fats', 'protein',)
+        fields = ('name', 'measure', 'calorie', 'quantity', 'carbohydrate', 'fats', 'protein',)
+
 
 
 class AddExerciseForm(forms.ModelForm):

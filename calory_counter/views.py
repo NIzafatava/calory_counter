@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.views import View
 from django.views.generic import DetailView
 
-from .forms import SelectFoodForm, AddFoodForm, CreateUserForm, ProfileForm, AddExerciseForm, SelectExerciseForm, AddRecipeForm
+from .forms import SelectFoodForm, AddFoodForm, CreateUserForm, ProfileForm, AddExerciseForm, SelectExerciseForm, \
+    AddRecipeForm
 from .models import *
 from datetime import timedelta
 from django.utils import timezone
@@ -13,6 +14,7 @@ from datetime import date
 from datetime import datetime
 from .filters import FoodFilter, ExerciseFilter, ReceipeFilter
 from user.models import *
+from django.http import JsonResponse
 
 
 @login_required(login_url='user:login')
@@ -111,6 +113,8 @@ def select_food(request):
     # food_items = Food.objects.filter(person_of=request.user)
     food_items = Food.objects.all().order_by('name')
     form = SelectFoodForm(request.user, instance=person)
+    # form2 = SelectRecipeForm(request.user, instance=person)
+    # form2 = SelectRecipeForm(request.user, instance=person)
     myFilter = FoodFilter(request.GET, queryset=food_items)
 
     if request.method == 'POST':
@@ -120,6 +124,14 @@ def select_food(request):
             return redirect('calory_counter:home')
     else:
         form = SelectFoodForm(request.user)
+
+    # if request.method == 'POST':
+    #     form = SelectRecipeForm(request.user, request.POST, instance=person)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('calory_counter:home')
+    # else:
+    #     form = SelectRecipeForm(request.user)
 
     context = {'form': form, 'food_items': food_items, 'my_filter':myFilter}
     return render(request, 'select_food.html', context)
@@ -239,3 +251,49 @@ def ProfilePage(request):
     return render(request, 'profile.html', context)
 
 
+def add_recipe_to_profile(request, recipe_id):
+    if request.user.is_authenticated:
+        profile = Profile.objects.filter(person_of=request.user).last()
+        recipe = Receipe.objects.get(pk=recipe_id)
+        profile.recipes.add(recipe)
+        # profile.update_total_calorie()
+
+        return redirect('calory_counter:add_food')
+    else:
+
+        return redirect('user:login')
+
+
+def get_statistic_view(request):
+    return render(request, 'statistics.html')
+
+def get_statistics_calorie(request):
+    labels = []
+    data = []
+
+    queryset = Profile.objects.values('date', 'total_calorie')
+    for entry in queryset:
+        labels.append(entry['date'])
+        data.append(entry['total_calorie'])
+
+    # return render(request, 'statistics.html')
+    return JsonResponse(data={
+            'labels': labels,
+            'data': data,
+        })
+
+
+def get_statistics_weight(request):
+    labels = []
+    data = []
+
+    queryset = Profile.objects.values('date', 'current_weight')
+    for entry in queryset:
+        labels.append(entry['date'])
+        data.append(entry['current_weight'])
+
+    # return render(request, 'statistics.html')
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })
