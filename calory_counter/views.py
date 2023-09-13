@@ -297,3 +297,18 @@ def get_statistics_weight(request):
         'labels': labels,
         'data': data,
     })
+
+def get_statistics_water(request):
+    labels = []
+    data = []
+
+    queryset = Profile.objects.values('date', 'current_water')
+    for entry in queryset:
+        labels.append(entry['date'])
+        data.append(entry['current_water'])
+
+    # return render(request, 'statistics.html')
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })

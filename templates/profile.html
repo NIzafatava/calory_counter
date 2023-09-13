@@ -3,36 +3,38 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h1 class="headline">Your Profile :</h1>
-        <div class="row mt-4 mb-4">
-            <div class="col-lg-5 card card-body">
+    <h1 class="headline" style="font-family: Roboto,sans-serif; text-align: center">Your Profile :</h1>
+        <div class="row mt-4 mb-4" style="flex: none; flex-direction: column; align-items: center;">
+            <div class="col-lg-5 card card-body" style="flex: none; background: rgba(39,161,50,0.48)">
             <div class="app-title">
                 
-                <h1 class="text-center profile-text mt-2">Name: {{ request.user }} </h1>
+                <h1 class="text-center profile-text mt-2" style="font-size: 1.5rem; font-family: Roboto, sans-serif">Name: {{ request.user }} </h1>
 
             </div>
 
             <form method="POST" action="" class="login-form pt-4">
               {% csrf_token %}
 {#                {% for field in form %}#}
-                <h1>Calorie Goal For Today</h1>
+                <h1 style="font-size: 1.5rem; font-family: Roboto, sans-serif">Calorie Goal For Today</h1>
                 {{ form.calorie_goal }}
-                <h1>Weight Goal</h1>
+                <h1 style="font-size: 1.5rem; font-family: Roboto, sans-serif">Weight Goal</h1>
                 {{ form.goal_weight }}
-                <h1>Current Weight</h1>
+                <h1 style="font-size: 1.5rem; font-family: Roboto, sans-serif">Current Weight</h1>
                 {{ form.current_weight}}
-                <h1>Water goal (L)</h1>
-                {{ form.goal_water}}L
-                <h1>Current water consumption(L)</h1>
-                {{ form.current_water}}L
+                <h1 style="font-size: 1.5rem; font-family: Roboto, sans-serif">Water goal (L)</h1>
+                {{ form.goal_water}}
+                <h1 style="font-size: 1.5rem; font-family: Roboto, sans-serif">Current water consumption(L)</h1>
+                {{ form.current_water}}
 {#                {% endfor %}#}
-                <input class="btn login_btn profile-submit ml-3" type="submit" value="select">
+                <br>
+                <br>
+                <input class="btn login_btn profile-submit ml-3" type="submit" style="background: black; font-family: Roboto, sans-serif; margin: 1rem!important;" value="select">
 
             </form>
         </div>
      
         <div class="col-lg-7">
-        <h1 class="text-center headline pb-2">Records From Past Week</h1>
+        <h1 class="text-center headline pb-2" style="font-family: Roboto,sans-serif">Records From Past Week</h1>
         <table class="table text-center">
             <thead class="thead-dark">
                 <tr>
@@ -57,7 +59,7 @@
    
      </div>
 
-    <h1 class="text-center headline">All Food Items</h1>
+    <h1 class="text-center headline" style="font-family: Roboto,sans-serif">All Food Items</h1>
 
      <div class="row mt-5">
       <table class="table text-center">
@@ -76,8 +78,8 @@
                     <td>{{ food.name }}</td>
                     <td>{{ food.calorie }}</td>
                     <td>{{ food.quantity }}</td>
-                    <td><a class="btn btn-sm btn-info" href="{% url 'calory_counter:update_food' food.id %}">Update</a></td>
-                    <td><a class="btn btn-sm " href="{% url 'calory_counter:delete_food' food.id %}">Delete</a></td>
+                    <td><a class="btn btn-sm btn-info" style="background: rgba(39,161,50,0.48); border-color: background: rgba(39,161,50,0.48)" href="{% url 'calory_counter:update_food' food.id %} ">Update</a></td>
+                    <td><a class="btn btn-sm " style="background: black" href="{% url 'calory_counter:delete_food' food.id %}">Delete</a></td>
 
                     
                 </tr>

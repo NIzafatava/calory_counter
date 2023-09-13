@@ -2,12 +2,14 @@
 
 {% block content %}
 <div class="container">
-<div class="row">
+<div class="row" style="margin-right: 200px;
+    margin-left: -15px;">
+
     <div class="col-lg-6">
     <div class="login">
         <div class="login-screen">
             <div class="app-title">
-                <h1 class="headline">Add New Exercise</h1>
+                <h1 class="headline" style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px">Add New Exercise</h1>
             </div>
 
             <form method="POST" action="" class="login-form form-inline">
@@ -21,26 +23,23 @@
                  
                 {% endfor %}
            
-                <input class="btn mt-2" type="submit" value="add">
+                <input class="btn mt-2" style="background: black; font-family: Roboto, sans-serif; margin-top: 30px" type="submit" value="add">
 
             </form>
-           
+
+        <form method="get">
+                  <h1 class="headline"style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px">{{ myFilter.form }}</h1>
+                  <button class="btn mt-2" style="background: black; font-family: Roboto, sans-serif;" type="submit">Search</button>
+              </form>
         </div>
         
     </div>
     </div>
-    <div class="col-lg-6 ">
-    <div class="login">
-        <div class="login-screen">
-              <form method="get">
-                  <h1 class="headline">{{ myFilter.form }}</h1>
-                  <button class="btn mt-2" type="submit">Search</button>
-              </form> 
-        </div>
-    </div>
 
-        <h1 class="headline"> All Exercises</h1>
-        <table class="table table-bordered text-center mt-3">
+    <div class="col-lg-6" style="max-width: 50%">
+
+        <h1 class="headline" style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px;margin-top: 30px;margin-left: 200px;"> All Exercises</h1>
+        <table class="table table-bordered text-center mt-3" style="margin-left: 70px;">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Exercise Name</th>

@@ -9,22 +9,23 @@ a {
   text-decoration:none !important;
 }
 .logo {
-  font-family: 'Lobster', cursive;
+  font-family: Roboto, sans-serif;
   padding-top:0px;
   padding-bottom:12px;
   font-size: 60px;
-  color: #1488CC;  /* fallback for old browsers */
-  color: -webkit-linear-gradient(to right, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
-  color: linear-gradient(to right, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #0f0f0f;  /* fallback for old browsers */
+
+  /*color: -webkit-linear-gradient(to right, #0f0f0f);  !* Chrome 10-25, Safari 5.1-6 *!*/
+  /*color: linear-gradient(to right, #0f0f0f); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 
 }
 
 #navbar-primary.navbar-default .navbar-nav {
   width: 100%;
   text-align: center;
-background: #2193b0;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #000000FF;  /* fallback for old browsers */
+/*background: #000000FF;  !* Chrome 10-25, Safari 5.1-6 *!*/
+/*background: #000000FF; !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 
   border-radius: 100px ;
 }
@@ -34,15 +35,16 @@ background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, F
   vertical-align: top;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: 'Grandstander', cursive
-
+  font-family: 'Grandstander', cursive;
+  background: black;
 }
 #navbar-primary.navbar-default .navbar-nav > li > a {
   padding-left: 30px;
   padding-right: 30px;
-  color:#000080;
+  color: white !important;
   font-size: 18px;
   text-decoration:none;
+  background: black;
 }
 ul.navbar-nav .nav-item:after {
     content: '';
@@ -151,9 +153,10 @@ background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, F
 }
 
 #username {
-font-family: 'Pacifico', cursive;
+font-family: 'Roboto', cursive;
 padding-top:0px;
 padding-bottom:30px;
+color: black;
 }
 
 #username sub {
@@ -168,9 +171,9 @@ padding-bottom:30px;
 }
 .card {
 
-background: #457fca;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: black;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, black, black);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, black, black); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
  color:white;
 
@@ -236,9 +239,9 @@ background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, F
 }
 
 th{
-background: #1e3c72;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: black;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, black, black);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, black, black); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
@@ -249,11 +252,11 @@ font-family: 'Ubuntu', sans-serif;
 }
 
 .headline {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Roboto', cursive;
   padding-top:20px;
- color: #2193b0;  /* fallback for old browsers */
-color:  -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-color:  linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ color: black;  /* fallback for old browsers */
+/*color:  -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  !* Chrome 10-25, Safari 5.1-6 *!*/
+/*color:  linear-gradient(to right, #6dd5ed, #2193b0); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 
 }
 .profile-text {
@@ -280,15 +283,13 @@ background: linear-gradient(to bottom, #5691c8, #457fca); /* W3C, IE 10+/ Edge, 
 }
 
 .form-labels {
-  font-family: 'Titillium Web', sans-serif;
-  color:#457fca;
-
-
+    font-family: 'Titillium Web', sans-serif;
+    color: black;
+    width: 400px;
 }
 
 
-.custom-toggler.navbar-toggler {
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-}
 
+#logout{
+color: #1e1e1e;
+}

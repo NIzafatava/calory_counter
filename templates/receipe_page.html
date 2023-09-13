@@ -16,7 +16,7 @@
     <div class="login">
         <div class="login-screen" style='width: 245px'>
             <div class="app-title">
-                <h1 class="headline">Add New Recipe</h1>
+                <h1 class="headline" style="font-family: Roboto,sans-serif; font-size: 24px">Add New Recipe</h1>
             </div>
 
             <form method="POST" action="" class="login-form form-inline" >
@@ -29,7 +29,7 @@
                  {{ field }}
                 {% endfor %}
 
-                <input class="btn mt-2" type="submit" value="add">
+                <input class="btn mt-2" style="background: black; font-family: Roboto, sans-serif; margin: 1rem!important;" type="submit" value="add">
 
             </form>
 
@@ -37,16 +37,17 @@
 
     </div>
     </div>
-
+<section>
     {% for receipe in all_receipes %}
-        <div class="card" style="width: 18rem; height: 500px; margin: 20px; float: left">
+
+        <div class="card" style="width: 29%; height: 600px; margin: 20px; float: left">
       <img src={{ receipe.img_url.url }}  class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ receipe.name }}</h5>
 
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" style="color: black">difficulty level: {{ receipe.difficulty_level }}</li>
+            <li class="list-group-item" style="color: black">difficulty level: {{ receipe.difficulty_level }}</li>
         <li class="list-group-item" style="color: black">cooking time: {{ receipe.time}} minutes</li>
         <li class="list-group-item" style="color: black">calories {{ receipe.calorie}} ccal</li>
       </ul>
@@ -58,6 +59,7 @@
     </div>
 
     {% endfor %}
+</section>
 {#    <h2>Add Recipe:</h2>#}
 {#      <ul>#}
 {#        {% for recipe in all_receipes %}#}

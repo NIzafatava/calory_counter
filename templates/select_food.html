@@ -1,89 +1,48 @@
 {% extends 'base.html' %}
-
+{% load static %}
+<link href="{% static 'select_food.css' %}" rel="stylesheet">
 {% block content %}
-
+    <div class ='select-food img form'>
+    <p style="text-align: center">
+    <img src="{% static 'select_food/img_1.png' %}" alt="" data-image-width="1619" data-image-height="1080" style="width: 1012px;
+    height: 548px">
+    </p>
     <div class="login mt-0">
-        <div class="login-screen">
+        <div class="login-screen" style="margin: -430px auto 70px -350px; text-align: left;">
             <div class="app-title">
-                <h1 class="headline">Select Food</h1>
+                <h1 class="headline" style="font-family: Roboto,sans-serif; text-align: left;">Select Food</h1>
             </div>
+            <br>
             <div>
-            <form method="POST" action="" class="login-form">
+            <form method="POST" action="" class="login-form" style="width: 200px">
               {% csrf_token %}
             </div>
-{##}
-{#            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>#}
-{#            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
-{#            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />#}
-{#                 <script>#}
-{#                     $(document).ready(function()#}
-{#                     {#}
-{#                         $(#selectfood).select2();#}
-{#                     });#}
-{#                 </script>#}
-{#                  <select id="selectfood">#}
-{#                      <option selected disabled="true">select food </option>#}
-{#                      {% for food in food_items %}#}
-{#                      <option>{{ food.name}}</option>#}
-{#                      {% endfor %}#}
-{##}
-{#                  </select>#}
-{#         <h5 class="form-labels">#}
-{##}
-{#                {{ form.quantity}}#}
-{#             {{ form.meat_type }}#}
+
              {{ form.as_p }}
-{#            {{ form2.as_p }}#}
+
                   <div>
-{#                  <label for="quantity">Choose quantity:</label>#}
-{#                {{ form.quantity}}#}
-{#                  </div>#}
-{#                  <label for="meat_type">Choose a meat type:</label>#}
-{##}
-{#                <select name="form.meat_type" id="">#}
-{#                  <option value="form">Breakfast</option>#}
-{#                  <option value="brunch">Brunch</option>#}
-{#                  <option value="lunch">Lunch</option>#}
-{#                  <option value="dinner">Dinner</option>#}
-{#                    <option value="supper">Supper</option>#}
-{#                    <option value="snacks">Snacks</option>#}
-{#                </select>#}
+
             </h5>
-                <input class="btn login_btn pt-2" type="submit" value="select">
+                <input class="btn login_btn pt-2" type="submit" style="background: black; font-family: Roboto, sans-serif; margin: 1rem!important;" value="select">
 
             </form>
         </div>
+        </div>
+    </div>
 
-             <div class="login mt-0">
-        <div class="login-screen">
-            <div class="app-title">
-                <h1 class="headline">Select Recipe</h1>
-            </div>
-            <div>
-            <form method="POST" action="" class="login-form">
-              {% csrf_token %}
-{#            </div>#}
-            {{ form2.as_p }}
-                    <input class="btn login_btn pt-2" type="submit" value="select">
-
-                        </form>
-                    </div>
-                </div>
     <div class="container-fluid">
-   <h1 class="headline text-center pb-3">All Food Items </h1>
+   <h1 class="headline text-center pb-3" style="font-family: Roboto,sans-serif;">All Food Items </h1>
         <table class="table table-bordered text-center">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Meat Type</th>
-                    <th scope="col">Food Name</th>
-                    <th scope="col">Calories</th>
-                    <th scope="col">Quantity</th>
+                    <th scope="col" style="width: 100px">Food Name</th>
+                    <th scope="col" style="width: 100px">Calories</th>
+                    <th scope="col" style="width: 100px">Quantity</th>
                 </tr>
             </thead>
             <tbody>
                 {% for food in food_items %}
                 <tr>
-                    <td>{{ food.meat_type }}</td>
                     <td>{{ food.name }}</td>
                     <td>{{ food.calorie }}</td>
                     <td>{{ food.quantity }}</td>
@@ -94,4 +53,4 @@
         </table>
      </div>
 
-{% endblock content %}
+   {% endblock content %}

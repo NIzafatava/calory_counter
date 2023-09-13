@@ -1,8 +1,8 @@
 from django.urls import path
 
 from .views import (HomePageView, select_food, add_food, ProfilePage, update_food, delete_food, add_exercise, \
-	select_exercise, receipe_view, RecipeDetailView, add_recipe_to_profile, get_statistics_calorie,
-					get_statistic_view, get_statistics_weight)
+					select_exercise, receipe_view, RecipeDetailView, add_recipe_to_profile, get_statistics_calorie,
+					get_statistic_view, get_statistics_weight, get_statistics_water)
 
 
 
@@ -22,5 +22,6 @@ urlpatterns = [
 	path('add_recipe/<int:recipe_id>/', add_recipe_to_profile, name='add_recipe'),
 	path('statistics/', get_statistics_calorie, name ='statistics_calorie'),
 	path('statistics_weight/', get_statistics_weight, name='statistics_weight'),
+	path('statistics_water/', get_statistics_water, name='statistics_water'),
 	path('statistics_view/', get_statistic_view, name='statistics_view'),
 ]

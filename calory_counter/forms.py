@@ -2,6 +2,8 @@ from django.forms import ModelForm, TextInput
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
+from django.forms.widgets import ChoiceWidget
+
 from .models import Food, Exercise, Receipe
 from user.models import Profile
 
@@ -16,11 +18,17 @@ class SelectFoodForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('food_selected', 'quantity','meat_type',)
+        labels = {'food_selected': 'Food',
+        'quantity':'Qnty', 'meat_type': 'Type'}
+
 
     def __init__(self, user, *args, **kwargs):
         super(SelectFoodForm, self).__init__(*args, **kwargs)
         # self.fields['food_selected'].queryset = Food.objects.filter(person_of=user)
         self.fields['food_selected'].queryset = Food.objects.all().order_by('name')
+        self.fields['food_selected'].widget.attrs['style'] = 'width:200px; height:20px;border-color: black;'
+        self.fields['quantity'].widget.attrs['style'] = 'width:200px; height:20px; background: white;border-color: black;'
+        self.fields['meat_type'].widget.attrs['style'] = 'width:200px; height:20px;border-color: black;'
 
 # class SelectRecipeForm(forms.ModelForm):
 #     class Meta:
@@ -37,10 +45,13 @@ class SelectExerciseForm(forms.ModelForm):
         model = Profile
         fields = ('exercises_selected', 'time_hour_exercise',)
 
+
     def __init__(self, user, *args, **kwargs):
         super(SelectExerciseForm, self).__init__(*args, **kwargs)
         # self.fields['food_selected'].queryset = Food.objects.filter(person_of=user)
         self.fields['exercises_selected'].queryset = Exercise.objects.all().order_by('name')
+        self.fields['exercises_selected'].widget.attrs['style'] = 'width:200px; height:20px; background: white;border-color: black;'
+        self.fields['time_hour_exercise'].widget.attrs['style'] = 'width:200px; height:20px;border-color: black;'
 
 
 class AddRecipeForm(forms.ModelForm):
@@ -71,6 +82,9 @@ class AddFoodForm(forms.ModelForm):
     class Meta:
         model = Food
         fields = ('name', 'measure', 'calorie', 'quantity', 'carbohydrate', 'fats', 'protein',)
+
+        def __init__(self, user, *args, **kwargs):
+            super(AddFoodForm, self).__init__(*args, **kwargs)
 
 
 

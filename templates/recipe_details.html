@@ -1,62 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="row" style="float: left; padding-right: 50px">
-	  <div class="col-md-10 col-md-offset-1 text-center" style="max-width:none; flex: none;">
-		<h2>{{ recipe.name }}</h2>
 
+<section style="width: 1110px;
+margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;">
+        <div class="row" style="float: left; padding-right: 50px">
+          <div class="col-md-10 col-md-offset-1 text-center" style="max-width:none; flex: none;">
+            <h2>{{ recipe.name }}</h2>
+              <p><img style="float:left; margin-left: 5px" src={{ recipe.img_url.url }}></p>
+            <p>
+        </div>
+        </div>
 
+        <div class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
+                    <div class="u-container-layout u-valign-middle u-container-layout-2">
+                      <h2 class="u-align-center u-text u-text-default u-text-1">Ingredients</h2>
+                      <p class="u-align-center u-text u-text-default u-text-2"> {{ recipe.ingredients }}</p>
+                      <ul class="u-align-center u-text u-text-default u-text-3">
+    {#                    <li>Tasty, fresh daily</li>#}
+    {#                    <li>Best pizza in NYC</li>#}
+                      </ul>
+                      <a href="{% url 'calory_counter:receipes' %}" class="u-active-black u-align-center u-border-2 u-border-active-black u-border-hover-black u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-active-white u-text-body-color u-text-hover-white u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="background: black; font-family: Roboto, sans-serif; color: white; font-size: 18px">Go to all recipes</a>
 
-          <p><img style="float:left; margin-left: 200px" src={{ recipe.img_url.url }}></p>
+                    </div>
+                  </div>
 
-        <p>
-    </div>
-	</div>
-    <div class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
-                <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <h2 class="u-align-center u-text u-text-default u-text-1">Ingredients</h2>
-                  <p class="u-align-center u-text u-text-default u-text-2"> {{ recipe.ingredients }}</p>
-                  <ul class="u-align-center u-text u-text-default u-text-3">
-{#                    <li>Tasty, fresh daily</li>#}
-{#                    <li>Best pizza in NYC</li>#}
-                  </ul>
-                  <a href="{% url 'calory_counter:receipes' %}" class="u-active-black u-align-center u-border-2 u-border-active-black u-border-hover-black u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-active-white u-text-body-color u-text-hover-white u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Go to all recipes</a>
-
-                </div>
-              </div>
-            </div>
+        <div class="u-align-center u-clearfix u-section-2" id="sec-1ffe">
+          <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-text u-text-1">How to cook?</h1>
+            <p class="u-text u-text-2">{{ recipe.content}}<br>
+              <br>
+              <br>
+              <br>
+            </p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="u-align-center u-clearfix u-section-2" id="sec-1ffe">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-text u-text-1">How to cook?</h1>
-        <p class="u-text u-text-2">{{ recipe.content}}<br>
-          <br>
-          <br>
-          <br>
-        </p>
-      </div>
-    </section>
 
-
-
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-c8b5"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-      </a>.
-    </section>
-
-</body></html>
-
+</section>
 {% endblock %}
