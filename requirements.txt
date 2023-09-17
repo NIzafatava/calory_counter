@@ -12,7 +12,8 @@ yarg==0.1.9
 django-filter==23.2
 django-admin-searchable-dropdown==1.2
 Pillow==10.0.0
-djangorestframework==3.14.0 pytz-2023.3
+djangorestframework==3.14.0
+pytz==2023.3
 serializers ==0.2.4
 cffi==1.15.1
 cryptography==41.0.3
