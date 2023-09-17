@@ -28,4 +28,6 @@ python3-openid==3.2.0
 social-auth-app-django==5.3.0
 social-auth-core==4.4.2
 django-chartjs==2.3.0
+faker==19.6.1
+python-dateutil==2.8.2 six-1.16.0
 

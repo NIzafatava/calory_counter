@@ -20,19 +20,14 @@ from django.http import JsonResponse
 @login_required(login_url='user:login')
 def HomePageView(request):
 
-    breakfast = Profile.objects.filter(meat_type__contains='breakfast', food_selected__name='__all__')
-    # brunch = PostFood.objects.filter(meat_type='2', food__name='__all__')
-    # lunch = PostFood.objects.filter(meat_type='3', food__name='__all__')
-    # dinner = PostFood.objects.filter(meat_type='4', food__name='__all__')
-    # supper = PostFood.objects.filter(meat_type='5', food__name='__all__')
-    # snacks = PostFood.objects.filter(meat_type='6', food__name='__all__')
+
     calories = Profile.objects.filter(person_of=request.user).last()
     calorie_goal = calories.calorie_goal
     water_goal = calories.goal_water
     water_current = calories.current_water
     weight = Profile.objects.filter(person_of=request.user).last()
     weight_goal = weight.goal_weight
-
+    date_today = date.today()
     if date.today() > calories.date:
         profile = Profile.objects.create(person_of=request.user)
         profile.save()
@@ -46,7 +41,7 @@ def HomePageView(request):
     dinner_all_food_today = PostFood.objects.filter(profile=calories, meat_type__contains='dinner')
     supper_all_food_today = PostFood.objects.filter(profile=calories, meat_type__contains='supper')
     snacks_all_food_today = PostFood.objects.filter(profile=calories, meat_type__contains='snacks')
-    calorie_goal_status = calorie_goal - calories.total_calorie
+    calorie_goal_status = calorie_goal - calories.total_calorie + calories.total_calorie_exercise
     water_goal_status = water_goal - calories.current_water
     weight_goal_status = weight.current_weight - weight_goal
     over_calorie = 0
@@ -72,6 +67,7 @@ def HomePageView(request):
         'water_current': water_current,
         'water_goal_status': water_goal_status,
         'all_exercises_today':all_exercises_today,
+        'date_today': date_today,
     }
     return render(request, 'home.html', context, )
 
@@ -103,7 +99,6 @@ class RecipeDetailView(View):
             "recipe_details.html",
             {
                 "recipe": get_object_or_404(Receipe, id=recipe_id),
-                # "cart": PizzaCart(request),
             },
         )
 

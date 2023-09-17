@@ -324,7 +324,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="​Get active and be a healthy weight, Juice cocktails, ​Get active and be a healthy weight, ​Enjoy this vibrant summer salad for a quick midweek meal">
     <meta name="description" content="">
-    <title>Page 1</title>
+    <title>Calorie Tracking app</title>
     <link rel="stylesheet" href="{% static 'nicepage.css' %}" media="screen">
 <link rel="stylesheet" href="{% static 'home.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
@@ -402,23 +402,27 @@
         </div>
       </div>
     </section>
-    <h1 id="username" class="text-center mt-4 headline">Hi, {{ request.user }}<sub><a id='logout' href="{% url "user:logout" %}">(Logout)</a></sub></h1>
+    <h1 id="username" class="text-center mt-4 headline" style="margin-bottom: 10px; padding-bottom: 10px; text-align: center;">Hi, {{ request.user }}<sub><a id='logout' href="{% url "user:logout" %}">(Logout)</a></sub></h1>
 
+  <div style="font-family: 'Roboto', cursive; margin-bottom: 30px; text-align: center; margin-top: 10px;     margin-right: 53px;    font-weight: 400;
+    font-size: 2rem;">
+     Today - {{ date_today }}
+  </div>
 
 <div class="container mt-2">
   <div class="row">
     <div class="col-lg-6 col-sm-12 item ">
       <div class="card item-card card-block" >
         <h5 class="card-title mt-3 mb-3 text-center">Total Calories Consumed Today</h5>
-        <p class="card-text text-center" style="font-size: 35px">{{ total_calorie }} cal</p>
-{#          <h5 class="card-title mt-3 mb-3 text-center">Total Calories Burned Today</h5>#}
-{#        <p class="card-text text-center">{{ total_calorie_burned }} cal</p>#}
+        <p class="card-text text-center" style="font-size: 35px; margin: 0px" >{{ total_calorie }} cal</p>
+          <h5 class="card-title mt-3 mb-3 text-center" style="margin: 0px">Total Calories Burned Today</h5>
+        <p class="card-text text-center" style="font-size: 35px; margin: 0px">{{ total_calorie_burned }} cal</p>
     </div>
     </div>
     <div class="col-lg-6 col-sm-12 item">
       <div class="card item-card card-block mt-sm-2 mt-lg-0">
-        <h5 class="card-title  mt-3 mb-3 text-center">Calorie Goal For Today</h5>
-        <p class="card-text text-center" style="color: red; font-size: 35px">{{ calorie_goal }} cal</p>
+        <h5 class="card-title  mt-3 mb-3 text-center" style="padding-top: 50px">Calorie Goal For Today</h5>
+        <p class="card-text text-center" style="color: red; font-size: 35px; height: 150px;">{{ calorie_goal }} cal</p>
   </div>
     </div>
   </div>

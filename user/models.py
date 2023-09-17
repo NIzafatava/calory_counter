@@ -46,9 +46,9 @@ class Profile(models.Model):
             super(Profile, self).save(*args, **kwargs)
         if self.exercises_selected != None:
             calories = Profile.objects.filter(person_of=self.person_of).last()
-            self.amount = (self.exercises_selected.calorie / self.exercises_selected.time_hour)
-            self.calorie_count = self.amount * self.time_hour_exercise
-            self.total_calorie_exercise = self.calorie_count*self.total_calorie_exercise
+            self.amount_exercise = (self.exercises_selected.calorie / self.exercises_selected.time_hour)
+            self.calorie_count = self.amount_exercise * self.time_hour_exercise
+            self.total_calorie_exercise = self.calorie_count+self.total_calorie_exercise
             PostExercise.objects.create(profile=calories, exercise=self.exercises_selected, calorie_amount=self.calorie_count,
                                     time=self.time_hour_exercise)
             self.exercises_selected = None

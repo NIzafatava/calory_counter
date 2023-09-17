@@ -16,7 +16,30 @@ margin-top: 20px;
 
         <div class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
                     <div class="u-container-layout u-valign-middle u-container-layout-2">
-                      <h2 class="u-align-center u-text u-text-default u-text-1">Ingredients</h2>
+                      <table style="margin-top: 30px">
+                        <thead class="thead-dark">
+                        <tr class="text-center">
+                      <th scope="col" style="color: white; width: 70px">Calorie</th>
+                      <th scope="col" style="color: white; width: 70px">Carb-te</th>
+                      <th scope="col" style="color: white; width: 70px;">Fats</th>
+                      <th scope="col" style="color: white; width: 70px">Protein </th>
+                      <th scope="col" style="color: white; width: 70px">Time</th>
+                      <th scope="col" style="color: white; width: 71px">Level</th>
+                    </tr>
+                      </thead>
+                          </table>
+
+                        <table style="border: 1px solid black; background-color: white;">
+                            <tr class="text-center">
+                                <td style="border-color: black; width: 70px;">{{ recipe.calorie }}</td>
+                                <td style="width: 70px">{{ recipe.carbohydrate }}</td>
+                                <td style="width: 70px">{{ recipe.fats }}</td>
+                                <td style="width: 70px">{{ recipe.protein }}</td>
+                                <td style="width: 70px">{{ recipe.time }}</td>
+                                <td style="width: 70px">{{ recipe.difficulty_level }}</td>
+                            </tr>
+                        </table>
+                      <h2 class="u-align-center u-text u-text-default u-text-1" style="margin-top: 30px">Ingredients</h2>
                       <p class="u-align-center u-text u-text-default u-text-2"> {{ recipe.ingredients }}</p>
                       <ul class="u-align-center u-text u-text-default u-text-3">
     {#                    <li>Tasty, fresh daily</li>#}
