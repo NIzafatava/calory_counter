@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-de44%716oba_)md$1%)qmp&_&wq%b#8n(z@13pj%&(!mi2m7lb'
-SECRET_KEY = os.getenv('DJANGO_SECRET_KET')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KET', 'django-insecure-de44%716oba_)md$1%)qmp&_&wq%b#8n(z@13pj%&(!mi2m7lb')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'chartjs',
+    'drf_yasg',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -158,8 +160,8 @@ SIMPLE_JWT = {
     "UPDATE_LAST_LOGIN": False,
 
     "ALGORITHM": "HS256",
-    "SIGNING_KEY": os.getenv('JWT_SIGNING_KEY'),
-# "SIGNING_KEY": SECRET_KEY,
+    "SIGNING_KEY": os.getenv('JWT_SIGNING_KEY', SECRET_KEY),
+    # "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": "",
     "AUDIENCE": None,
     "ISSUER": None,
