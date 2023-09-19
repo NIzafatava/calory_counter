@@ -17,17 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
-# from .swagger import schema_view
+from .swagger import schema_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('calory_counter.urls')),
     path('', include('user.urls')),
     path('', include('calory_counter.api.urls')),
-    # path('swagger-ui/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
-    # re_path(
-    #     r"^swagger(?P<format>\.json|\.yaml)$",
-    #     schema_view.without_ui(cache_timeout=60),
-    #     name='schema-json'),
+    path('swagger-ui/', TemplateView.as_view(
+            template_name='swagger-ui.html',
+            extra_context={'schema_url': 'openapi-schema'}
+        ),
+        name='swagger-ui'),
+    re_path(  # new
+        r'^swagger(?P<format>\.json|\.yaml)$',
+        schema_view.without_ui(cache_timeout=0),
+        name='schema-json'),
 
 ]

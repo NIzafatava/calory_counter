@@ -26,8 +26,8 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KET', 'django-insecure-de44%716oba_)md$1%)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG: bool = os.getenv('DJANG0_DEBUG', '0') == '1'
-# DEBUG = True
+# DEBUG: bool = os.getenv('DJANG0_DEBUG', '0') == '1'
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'chartjs',
-    # 'drf_yasg2',
-    # 'rest_framework_swagger',
+    'drf_yasg',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -193,4 +193,4 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
-SWAGGER_SETTINGS = { "DEFAULT_GENERATOR_CLASS": "rest_framework.schemas.generators.BaseSchemaGenerator", }
+# SWAGGER_SETTINGS = { "DEFAULT_GENERATOR_CLASS": "rest_framework.schemas.generators.BaseSchemaGenerator", }

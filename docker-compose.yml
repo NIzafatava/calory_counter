@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+#    volumes:
+#      - db.sqlite3/:/root/db/
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - '1339:80'
+    volumes:
+      - "./static:/var/www/static/"
+    depends_on:
+      - web
+    restart: "on-failure"
+
+  web:
+    build: .
+    command: sh -c "python manage.py makemigrations &&
+                    python manage.py migrate &&
+                    gunicorn --bind 0.0.0.0:8008 'djangoProject2.wsgi:application'"
+
+    volumes:
+      - .:/app
+
+#    - static_volume:/home/app/microservice/static
+
+#    env_file:
+#      - venv
+    image: calorycounter:v1
+    restart: "on-failure"
+
+    depends_on:
+      - sqlite3
