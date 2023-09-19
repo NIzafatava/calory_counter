@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('user', '0002_profile_current_water_profile_goal_water'),
+        ("user", "0002_profile_current_water_profile_goal_water"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='profile',
-            name='current_water',
+            model_name="profile",
+            name="current_water",
             field=models.FloatField(blank=True, default=0, max_length=100, null=True),
         ),
     ]

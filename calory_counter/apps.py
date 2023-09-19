@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class CaloryCounterConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'calory_counter'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "calory_counter"

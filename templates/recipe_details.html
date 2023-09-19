@@ -2,64 +2,69 @@
 
 {% block content %}
 
-<section style="width: 1110px;
+    <section style="width: 1110px;
 margin-top: 20px;
     margin-left: auto;
     margin-right: auto;">
         <div class="row" style="float: left; padding-right: 50px">
-          <div class="col-md-10 col-md-offset-1 text-center" style="max-width:none; flex: none;">
-            <h2>{{ recipe.name }}</h2>
-              <p><img style="float:left; margin-left: 5px" src={{ recipe.img_url.url }}></p>
-            <p>
-        </div>
+            <div class="col-md-10 col-md-offset-1 text-center" style="max-width:none; flex: none;">
+                <h2>{{ recipe.name }}</h2>
+                <p><img style="float:left; margin-left: 5px" src={{ recipe.img_url.url }}></p>
+                <p>
+            </div>
         </div>
 
         <div class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
-                    <div class="u-container-layout u-valign-middle u-container-layout-2">
-                      <table style="margin-top: 30px">
-                        <thead class="thead-dark">
-                        <tr class="text-center">
-                      <th scope="col" style="color: white; width: 70px">Calorie</th>
-                      <th scope="col" style="color: white; width: 70px">Carb-te</th>
-                      <th scope="col" style="color: white; width: 70px;">Fats</th>
-                      <th scope="col" style="color: white; width: 70px">Protein </th>
-                      <th scope="col" style="color: white; width: 70px">Time</th>
-                      <th scope="col" style="color: white; width: 71px">Level</th>
+            <div class="u-container-layout u-valign-middle u-container-layout-2">
+                <table style="margin-top: 30px">
+                    <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th scope="col" style="color: white; width: 70px">Calorie</th>
+                        <th scope="col" style="color: white; width: 70px">Carb-te</th>
+                        <th scope="col" style="color: white; width: 70px;">Fats</th>
+                        <th scope="col" style="color: white; width: 70px">Protein</th>
+                        <th scope="col" style="color: white; width: 70px">Time</th>
+                        <th scope="col" style="color: white; width: 71px">Level</th>
                     </tr>
-                      </thead>
-                          </table>
+                    </thead>
+                </table>
 
-                        <table style="border: 1px solid black; background-color: white;">
-                            <tr class="text-center">
-                                <td style="border-color: black; width: 70px;">{{ recipe.calorie }}</td>
-                                <td style="width: 70px">{{ recipe.carbohydrate }}</td>
-                                <td style="width: 70px">{{ recipe.fats }}</td>
-                                <td style="width: 70px">{{ recipe.protein }}</td>
-                                <td style="width: 70px">{{ recipe.time }}</td>
-                                <td style="width: 70px">{{ recipe.difficulty_level }}</td>
-                            </tr>
-                        </table>
-                      <h2 class="u-align-center u-text u-text-default u-text-1" style="margin-top: 30px">Ingredients</h2>
-                      <p class="u-align-center u-text u-text-default u-text-2"> {{ recipe.ingredients }}</p>
-                      <ul class="u-align-center u-text u-text-default u-text-3">
-    {#                    <li>Tasty, fresh daily</li>#}
-    {#                    <li>Best pizza in NYC</li>#}
-                      </ul>
-                      <a href="{% url 'calory_counter:receipes' %}" class="u-active-black u-align-center u-border-2 u-border-active-black u-border-hover-black u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-active-white u-text-body-color u-text-hover-white u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" style="background: black; font-family: Roboto, sans-serif; color: white; font-size: 18px">Go to all recipes</a>
+                <table style="border: 1px solid black; background-color: white;">
+                    <tr class="text-center">
+                        <td style="border-color: black; width: 70px;">{{ recipe.calorie }}</td>
+                        <td style="width: 70px">{{ recipe.carbohydrate }}</td>
+                        <td style="width: 70px">{{ recipe.fats }}</td>
+                        <td style="width: 70px">{{ recipe.protein }}</td>
+                        <td style="width: 70px">{{ recipe.time }}</td>
+                        <td style="width: 70px">{{ recipe.difficulty_level }}</td>
+                    </tr>
+                </table>
+                <h2 class="u-align-center u-text u-text-default u-text-1" style="margin-top: 30px">Ingredients</h2>
+                <p class="u-align-center u-text u-text-default u-text-2"> {{ recipe.ingredients }}</p>
+                <ul class="u-align-center u-text u-text-default u-text-3">
+                    {#                    <li>Tasty, fresh daily</li>#}
+                    {#                    <li>Best pizza in NYC</li>#}
+                </ul>
+                <a href="{% url 'calory_counter:receipes' %}"
+                   class="u-active-black u-align-center u-border-2 u-border-active-black u-border-hover-black u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-active-white u-text-body-color u-text-hover-white u-btn-1"
+                   data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                   data-animation-direction=""
+                   style="background: black; font-family: Roboto, sans-serif; color: white; font-size: 18px">Go to all
+                    recipes</a>
 
-                    </div>
-                  </div>
-
-        <div class="u-align-center u-clearfix u-section-2" id="sec-1ffe">
-          <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-text u-text-1">How to cook?</h1>
-            <p class="u-text u-text-2">{{ recipe.content}}<br>
-              <br>
-              <br>
-              <br>
-            </p>
-          </div>
+            </div>
         </div>
 
-</section>
+        <div class="u-align-center u-clearfix u-section-2" id="sec-1ffe">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <h1 class="u-text u-text-1">How to cook?</h1>
+                <p class="u-text u-text-2">{{ recipe.content }}<br>
+                    <br>
+                    <br>
+                    <br>
+                </p>
+            </div>
+        </div>
+
+    </section>
 {% endblock %}

@@ -2,9 +2,9 @@
 {% load static %}
 <link href="{% static 'select_food.css' %}" rel="stylesheet">
 {% block content %}
-    <div class ='select-food img form'>
+    <div class='select-food img form'>
     <p style="text-align: center">
-    <img src="{% static 'select_food/img_1.png' %}" alt="" data-image-width="1619" data-image-height="1080" style="width: 1012px;
+        <img src="{% static 'select_food/img_1.png' %}" alt="" data-image-width="1619" data-image-height="1080" style="width: 1012px;
     height: 548px">
     </p>
     <div class="login mt-0">
@@ -14,43 +14,45 @@
             </div>
             <br>
             <div>
-            <form method="POST" action="" class="login-form" style="width: 200px">
-              {% csrf_token %}
+                <form method="POST" action="" class="login-form" style="width: 200px">
+                    {% csrf_token %}
             </div>
 
-             {{ form.as_p }}
+            {{ form.as_p }}
 
-                  <div>
+            <div>
 
-            </h5>
-                <input class="btn login_btn pt-2" type="submit" style="background: black; font-family: Roboto, sans-serif; margin: 1rem!important;" value="select">
+                </h5>
+                <input class="btn login_btn pt-2" type="submit"
+                       style="background: black; font-family: Roboto, sans-serif; margin: 1rem!important;"
+                       value="select">
 
-            </form>
-        </div>
+                </form>
+            </div>
         </div>
     </div>
 
     <div class="container-fluid">
-   <h1 class="headline text-center pb-3" style="font-family: Roboto,sans-serif;">All Food Items </h1>
+        <h1 class="headline text-center pb-3" style="font-family: Roboto,sans-serif;">All Food Items </h1>
         <table class="table table-bordered text-center">
             <thead class="thead-dark">
-                <tr>
-                    <th scope="col" style="width: 100px">Food Name</th>
-                    <th scope="col" style="width: 100px">Calories</th>
-                    <th scope="col" style="width: 100px">Quantity</th>
-                </tr>
+            <tr>
+                <th scope="col" style="width: 100px">Food Name</th>
+                <th scope="col" style="width: 100px">Calories</th>
+                <th scope="col" style="width: 100px">Quantity</th>
+            </tr>
             </thead>
             <tbody>
-                {% for food in food_items %}
+            {% for food in food_items %}
                 <tr>
                     <td>{{ food.name }}</td>
                     <td>{{ food.calorie }}</td>
                     <td>{{ food.quantity }}</td>
 
                 </tr>
-                {% endfor %}
+            {% endfor %}
             </tbody>
         </table>
-     </div>
+    </div>
 
-   {% endblock content %}
+{% endblock content %}

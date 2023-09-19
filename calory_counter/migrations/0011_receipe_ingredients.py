@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('calory_counter', '0010_alter_receipe_img_url'),
+        ("calory_counter", "0010_alter_receipe_img_url"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='receipe',
-            name='ingredients',
+            model_name="receipe",
+            name="ingredients",
             field=models.TextField(blank=True, max_length=1000000, null=True),
         ),
     ]

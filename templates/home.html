@@ -319,413 +319,462 @@
 <!DOCTYPE html>
 {#{% extends 'base.html' %}#}
 {% load static %}
-<html style="font-size: 16px;" lang="en"><head>
+<html style="font-size: 16px;" lang="en">
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="​Get active and be a healthy weight, Juice cocktails, ​Get active and be a healthy weight, ​Enjoy this vibrant summer salad for a quick midweek meal">
+    <meta name="keywords"
+          content="​Get active and be a healthy weight, Juice cocktails, ​Get active and be a healthy weight, ​Enjoy this vibrant summer salad for a quick midweek meal">
     <meta name="description" content="">
     <title>Calorie Tracking app</title>
     <link rel="stylesheet" href="{% static 'nicepage.css' %}" media="screen">
-<link rel="stylesheet" href="{% static 'home.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'home.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.17.1, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-<link href="{% static 'base.css' %}" rel="stylesheet">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link href="{% static 'base.css' %}" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
 
     <{% block extra_links %} {% endblock %}
 
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Page 1">
     <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
 
-<a href={% url "calory_counter:home" %}><h1 class="logo text-center" style="color: black; font-weight: lighter; font-family: 'Roboto Thin',serif">Сalorie tracking app</h1></a>
+<a href={% url "calory_counter:home" %}><h1 class="logo text-center"
+                                            style="color: black; font-weight: lighter; font-family: 'Roboto Thin',serif">
+    Сalorie tracking app</h1></a>
 
-<nav id="navbar-primary" class="navbar navbar-expand-lg navbar-default active" role="navigation" style="background-color: white">
+<nav id="navbar-primary" class="navbar navbar-expand-lg navbar-default active" role="navigation"
+     style="background-color: white">
 
     <!-- Brand and toggle get grouped for better mobile display -->
 
- <div class="container">
-          <div class="navbar-header">
+    <div class="container">
+        <div class="navbar-header">
             <!-- Brand and toggle get grouped for better mobile display -->
-          <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#resNav"  id='navbar-toggler'>
-            <span class="navbar-toggler-icon" id="ham"></span>
-          </button>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#resNav"
+                    id='navbar-toggler'>
+                <span class="navbar-toggler-icon" id="ham"></span>
+            </button>
         </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="resNav">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="resNav">
             <ul class="navbar-nav justify-content-center" style="color: black; background-color: rgba(67,255,73,0.48);">
-              {% with url_name=request.resolver_match.url_name %}
-              <li class="nav-item" style="color: black" ><a class="nav-link  {% if url_name == 'home' %} active{% endif %}" style="color: white;" href={% url "calory_counter:home" %}>Home</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'profile' %} active{% endif %}"style="color: white"  href={% url "calory_counter:profile" %}>Profile</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'select_food' %} active{% endif %}" style="color: white"  href={% url "calory_counter:select_food" %}>Select Food</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'select_exercise' %} active{% endif %}" style="color: white" href={% url "calory_counter:select_exercise" %}>Select Exercise</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'add_food' %} active{% endif %}" style="color: white" href={% url "calory_counter:add_food" %}>Add Food</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'add_exercise' %} active{% endif %}" style="color: white" href={% url "calory_counter:add_exercise" %}>Add exercise</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'receipes' %} active{% endif %}" style="color: white" href={% url "calory_counter:receipes" %}>Recipes</a></li>
-              <li class="nav-item"><a class="nav-link {% if url_name == 'statistics_view' %} active{% endif %}" style="color: white"  href={% url "calory_counter:statistics_view" %}>Statistics</a></li>
-              {% endwith %}
+                {% with url_name=request.resolver_match.url_name %}
+                    <li class="nav-item" style="color: black"><a
+                            class="nav-link  {% if url_name == 'home' %} active{% endif %}" style="color: white;"
+                            href={% url "calory_counter:home" %}>Home</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'profile' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:profile" %}>Profile</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'select_food' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:select_food" %}>Select
+                        Food</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'select_exercise' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:select_exercise" %}>Select
+                        Exercise</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'add_food' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:add_food" %}>Add Food</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'add_exercise' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:add_exercise" %}>Add
+                        exercise</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'receipes' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:receipes" %}>Recipes</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'statistics_view' %} active{% endif %}"
+                                            style="color: white" href={% url "calory_counter:statistics_view" %}>Statistics</a>
+                    </li>
+                {% endwith %}
             </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.navbar-collapse -->
 
- </div>
+    </div>
 </nav>
 {% block content %}
-  <section class="u-body u-overlap u-overlap-transparent u-xl-mode" data-lang="en">
-    <section class="u-clearfix u-grey-5 u-section-1" id="sec-fa27" style="background-color: white; height: 640px">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-custom-color-1 u-shape u-shape-rectangle u-shape-1" data-animation-name="customAnimationIn" data-animation-duration="750"></div>
-        <div class="u-custom-color-1 u-shape u-shape-rectangle u-shape-2" data-animation-name="customAnimationIn" data-animation-duration="1250"></div>
-        <img src="{% static 'home/main_home.jpeg' %}" alt="" class="u-image u-image-default u-image-1" data-image-width="1619" data-image-height="1080" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="500">
-        <div class="u-align-left u-container-style u-expanded-width-xs u-group u-shape-rectangle u-white u-group-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">
-          <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h3 class="u-text u-text-1">Calorie Counter</h3>
-            <ul class="u-text u-text-2">
-              <li>Want to keep fit and be healthy?</li>
-              <li>Track meals, water consumption</li>
-              <li>Track your fitness activity</li>
-              <li>Learn new recipes and create new ones</li>
-              <li>Learn your statistics ... All this with our <span style="font-weight: 700;">Calorie Counter</span>
-              </li>
-            </ul>
-            <a href="#username" class="u-active-black u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-black u-radius-11 u-btn-1">Go to dashboard</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <h1 id="username" class="text-center mt-4 headline" style="margin-bottom: 10px; padding-bottom: 10px; text-align: center;">Hi, {{ request.user }}<sub><a id='logout' href="{% url "user:logout" %}">(Logout)</a></sub></h1>
+    <section class="u-body u-overlap u-overlap-transparent u-xl-mode" data-lang="en">
+        <section class="u-clearfix u-grey-5 u-section-1" id="sec-fa27" style="background-color: white; height: 640px">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <div class="u-custom-color-1 u-shape u-shape-rectangle u-shape-1"
+                     data-animation-name="customAnimationIn" data-animation-duration="750"></div>
+                <div class="u-custom-color-1 u-shape u-shape-rectangle u-shape-2"
+                     data-animation-name="customAnimationIn" data-animation-duration="1250"></div>
+                <img src="{% static 'home/main_home.jpeg' %}" alt="" class="u-image u-image-default u-image-1"
+                     data-image-width="1619" data-image-height="1080" data-animation-name="customAnimationIn"
+                     data-animation-duration="1000" data-animation-delay="500">
+                <div class="u-align-left u-container-style u-expanded-width-xs u-group u-shape-rectangle u-white u-group-1"
+                     data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">
+                    <div class="u-container-layout u-valign-middle u-container-layout-1">
+                        <h3 class="u-text u-text-1">Calorie Counter</h3>
+                        <ul class="u-text u-text-2">
+                            <li>Want to keep fit and be healthy?</li>
+                            <li>Track meals, water consumption</li>
+                            <li>Track your fitness activity</li>
+                            <li>Learn new recipes and create new ones</li>
+                            <li>Learn your statistics ... All this with our <span style="font-weight: 700;">Calorie Counter</span>
+                            </li>
+                        </ul>
+                        <a href="#username"
+                           class="u-active-black u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-black u-radius-11 u-btn-1">Go
+                            to dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h1 id="username" class="text-center mt-4 headline"
+            style="margin-bottom: 10px; padding-bottom: 10px; text-align: center;">Hi, {{ request.user }}<sub><a
+                id='logout' href="{% url "user:logout" %}">(Logout)</a></sub></h1>
 
-  <div style="font-family: 'Roboto', cursive; margin-bottom: 30px; text-align: center; margin-top: 10px;     margin-right: 53px;    font-weight: 400;
+        <div style="font-family: 'Roboto', cursive; margin-bottom: 30px; text-align: center; margin-top: 10px;     margin-right: 53px;    font-weight: 400;
     font-size: 2rem;">
-     Today - {{ date_today }}
-  </div>
+            Today - {{ date_today }}
+        </div>
 
-<div class="container mt-2">
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 item ">
-      <div class="card item-card card-block" >
-        <h5 class="card-title mt-3 mb-3 text-center">Total Calories Consumed Today</h5>
-        <p class="card-text text-center" style="font-size: 35px; margin: 0px" >{{ total_calorie }} cal</p>
-          <h5 class="card-title mt-3 mb-3 text-center" style="margin: 0px">Total Calories Burned Today</h5>
-        <p class="card-text text-center" style="font-size: 35px; margin: 0px">{{ total_calorie_burned }} cal</p>
-    </div>
-    </div>
-    <div class="col-lg-6 col-sm-12 item">
-      <div class="card item-card card-block mt-sm-2 mt-lg-0">
-        <h5 class="card-title  mt-3 mb-3 text-center" style="padding-top: 50px">Calorie Goal For Today</h5>
-        <p class="card-text text-center" style="color: red; font-size: 35px; height: 150px;">{{ calorie_goal }} cal</p>
-  </div>
-    </div>
-  </div>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 item ">
+                    <div class="card item-card card-block">
+                        <h5 class="card-title mt-3 mb-3 text-center">Total Calories Consumed Today</h5>
+                        <p class="card-text text-center" style="font-size: 35px; margin: 0px">{{ total_calorie }}
+                            cal</p>
+                        <h5 class="card-title mt-3 mb-3 text-center" style="margin: 0px">Total Calories Burned
+                            Today</h5>
+                        <p class="card-text text-center" style="font-size: 35px; margin: 0px">{{ total_calorie_burned }}
+                            cal</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 item">
+                    <div class="card item-card card-block mt-sm-2 mt-lg-0">
+                        <h5 class="card-title  mt-3 mb-3 text-center" style="padding-top: 50px">Calorie Goal For
+                            Today</h5>
+                        <p class="card-text text-center"
+                           style="color: red; font-size: 35px; height: 150px;">{{ calorie_goal }} cal</p>
+                    </div>
+                </div>
+            </div>
 
-</div>
+        </div>
 
- <div class="container mt-2">
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 item ">
-      <div class="card item-card card-block">
-        <h5 class="card-title mt-3 mb-3 text-center">Total Water Consumed Today</h5>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 item ">
+                    <div class="card item-card card-block">
+                        <h5 class="card-title mt-3 mb-3 text-center">Total Water Consumed Today</h5>
 
-        <p class="card-text text-center" style="font-size: 35px">{{ water_current}} litre</p>
-    </div>
-    </div>
-    <div class="col-lg-6 col-sm-12 item">
-      <div class="card item-card card-block mt-sm-2 mt-lg-0">
-        <h5 class="card-title  mt-3 mb-3 text-center">Water Goal For Today</h5>
-        <p class="card-text text-center" style="color: red; font-size: 35px">{{ water_goal }} litre</p>
+                        <p class="card-text text-center" style="font-size: 35px">{{ water_current }} litre</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 item">
+                    <div class="card item-card card-block mt-sm-2 mt-lg-0">
+                        <h5 class="card-title  mt-3 mb-3 text-center">Water Goal For Today</h5>
+                        <p class="card-text text-center" style="color: red; font-size: 35px">{{ water_goal }} litre</p>
 
-  </div>
-    </div>
-  </div>
+                    </div>
+                </div>
+            </div>
 
-</div>
+        </div>
 
-          <div class="card text-white text-center mt-4"  style="border-radius: 80px; background: white;
+        <div class="card text-white text-center mt-4" style="border-radius: 80px; background: white;
 width: 100%; border-color: white; padding: 0px">
 
-        <div class="card-body">
+            <div class="card-body">
 
-          <p class="card-text text-center pt-3" style="font-size:28px; color: #0f0f0f; padding: 0px">
-          {% if calorie_goal_status > 0 and water_goal_status > 0 %}
-      You need  {{ calorie_goal_status }} calories and {{ water_goal_status }} litres more to reach your goal!!!
-      {% elif calorie_goal == 0 or water_goal == 0 %}
-      <a href="{% url "profile" %}"> Enter your calorie/ water goal for the day!!! </a>
-      {% else %}
-      You surpassed your goal by {{ over_calorie }} calories!!!
-      {% endif %} </p>
+                <p class="card-text text-center pt-3" style="font-size:28px; color: #0f0f0f; padding: 0px">
+                    {% if calorie_goal_status > 0 and water_goal_status > 0 %}
+                        You need  {{ calorie_goal_status }} calories and {{ water_goal_status }} litres more to reach
+                        your goal!!!
+                    {% elif calorie_goal == 0 or water_goal == 0 %}
+                        <a href="{% url "profile" %}"> Enter your calorie/ water goal for the day!!! </a>
+                    {% else %}
+                        You surpassed your goal by {{ over_calorie }} calories!!!
+                    {% endif %} </p>
+
+            </div>
 
         </div>
 
-      </div>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 item ">
+                    <div class="card item-card card-block">
+                        <h5 class="card-title mt-3 mb-3 text-center">Current weight</h5>
+                        <p class="card-text text-center" style="font-size: 35px">{{ current_weight }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 item">
+                    <div class="card item-card card-block mt-sm-2 mt-lg-0">
+                        <h5 class="card-title  mt-3 mb-3 text-center">Weight Goal</h5>
+                        <p class="card-text text-center" style="color: red; font-size: 35px">{{ weight_goal }}</p>
+                    </div>
+                </div>
+            </div>
 
-<div class="container mt-2">
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 item ">
-      <div class="card item-card card-block">
-        <h5 class="card-title mt-3 mb-3 text-center">Current weight</h5>
-        <p class="card-text text-center" style="font-size: 35px">{{ current_weight }}</p>
-    </div>
-    </div>
-    <div class="col-lg-6 col-sm-12 item">
-      <div class="card item-card card-block mt-sm-2 mt-lg-0">
-        <h5 class="card-title  mt-3 mb-3 text-center">Weight Goal</h5>
-        <p class="card-text text-center" style="color: red; font-size: 35px">{{ weight_goal }}</p>
-  </div>
-    </div>
-  </div>
+        </div>
 
-</div>
-
-          <div class="card text-white text-center mt-4"  style="border-radius: 80px; width: 100%; background: white;border-color: white;
+        <div class="card text-white text-center mt-4" style="border-radius: 80px; width: 100%; background: white;border-color: white;
 ">
 
-        <div class="card-body">
+            <div class="card-body">
 
-          <p class="card-text text-center pt-3" style="font-size:28px; color: #0f0f0f">
-          {% if weight_goal_status > 0 %}
-      You need to burn off {{ weight_goal_status }} kg to reach your goal!!!
-      {% elif weight_goal == 0 %}
-      <a href="{% url "calory_counter:profile" %}" style="font-size:28px; color: red"> Enter your weight goal!!! </a>
-      {% else %}
-      You surpassed your goal
-      {% endif %} </p>
+                <p class="card-text text-center pt-3" style="font-size:28px; color: #0f0f0f">
+                    {% if weight_goal_status > 0 %}
+                        You need to burn off {{ weight_goal_status }} kg to reach your goal!!!
+                    {% elif weight_goal == 0 %}
+                        <a href="{% url "calory_counter:profile" %}" style="font-size:28px; color: red"> Enter your
+                            weight goal!!! </a>
+                    {% else %}
+                        You surpassed your goal
+                    {% endif %} </p>
 
+            </div>
         </div>
-    </div>
-  <br>
-  <br>
-<h1 class="headline text-center mt-auto mb-auto" style="font-size: 23px; font-family: Ubuntu,serif">All Exercises Today </h1>
-<div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-{#        <th scope="col">Meat type</th>#}
-      <th scope="col">Exercise</th>
-      <th scope="col">Time</th>
-      <th scope="col">Calories </th>
-    </tr>
-  </thead>
-  <tbody>
+        <br>
+        <br>
+        <h1 class="headline text-center mt-auto mb-auto" style="font-size: 23px; font-family: Ubuntu,serif">All
+            Exercises Today </h1>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    {#        <th scope="col">Meat type</th>#}
+                    <th scope="col">Exercise</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Calories</th>
+                </tr>
+                </thead>
+                <tbody>
 
-    <div class="flex-box-row">
-    <h5 id="heading">Exercise</h5>
-    <table class="table table-sm">
-    {% for exercise in all_exercises_today %}
-    <tr class="text-center">
-{#      <td> {{ food.meat_type }}</td>#}
-      <td style="width: 411.14px; border-color: black"> {{ exercise.exercise.name }}</td>
-      <td style="width: 292.35px; border-color: black"> {{ exercise.time }}</td>
-      <td style="width: 405.51px; border-color: black"> {{ exercise.calorie_amount }}</td>
-    </tr>
-{#        </table>#}
-    {% endfor %}
+                <div class="flex-box-row">
+                    <h5 id="heading">Exercise</h5>
+                    <table class="table table-sm">
+                        {% for exercise in all_exercises_today %}
+                            <tr class="text-center">
+                                {#      <td> {{ food.meat_type }}</td>#}
+                                <td style="width: 411.14px; border-color: black"> {{ exercise.exercise.name }}</td>
+                                <td style="width: 292.35px; border-color: black"> {{ exercise.time }}</td>
+                                <td style="width: 405.51px; border-color: black"> {{ exercise.calorie_amount }}</td>
+                            </tr>
+                            {#        </table>#}
+                        {% endfor %}
 
-    </table>
-    </div>
-     </tbody>
-</div>
-    </table>
-</div>
+                    </table>
+                </div>
+                </tbody>
+        </div>
+        </table>
+        </div>
 
-<h1 class="headline text-center mt-auto mb-auto" style="font-size: 23px; font-family: Ubuntu,serif">All Food Consumed Today </h1>
-<div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-        <th scope="col">Meat type</th>
-      <th scope="col">Food</th>
-      <th scope="col">Calorie</th>
-      <th scope="col">Carbohydrate </th>
-      <th scope="col">Fats</th>
-      <th scope="col">Protein </th>
-    </tr>
-  </thead>
-  <tbody>
-<div>{{ food_selected_today.food.fats }}</div>
-    <div class="flex-box-row">
-    <h5 id="heading">Breakfast</h5>
-    <table class="table table-sm">
-    {% for food in breakfast_all_food_today %}
-    <tr class="text-center">
-      <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
-      <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
-      <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
-      <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
-      <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
-      <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
+        <h1 class="headline text-center mt-auto mb-auto" style="font-size: 23px; font-family: Ubuntu,serif">All Food
+            Consumed Today </h1>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Meat type</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Carbohydrate</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Protein</th>
+                </tr>
+                </thead>
+                <tbody>
+                <div>{{ food_selected_today.food.fats }}</div>
+                <div class="flex-box-row">
+                    <h5 id="heading">Breakfast</h5>
+                    <table class="table table-sm">
+                        {% for food in breakfast_all_food_today %}
+                            <tr class="text-center">
+                                <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
+                                <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
+                                <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
+                                <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
+                                <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
+                                <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-<div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-        <th scope="col">Meat type</th>
-      <th scope="col">Food</th>
-      <th scope="col">Calorie</th>
-      <th scope="col">Carbohydrate </th>
-      <th scope="col">Fats</th>
-      <th scope="col">Protein </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tbody>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Meat type</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Carbohydrate</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Protein</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
 
-    <div class="flex-box-row">
-    <h5 id="heading">Brunch</h5>
-    <table class="table table-sm">
-    {% for food in brunch_all_food_today %}
-    <tr class="text-center">
-      <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
-      <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
-      <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
-      <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
-      <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
-      <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
-    <div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-        <th scope="col">Meat type</th>
-      <th scope="col">Food</th>
-      <th scope="col">Calorie</th>
-      <th scope="col">Carbohydrate </th>
-      <th scope="col">Fats</th>
-      <th scope="col">Protein </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tbody>
+                <div class="flex-box-row">
+                    <h5 id="heading">Brunch</h5>
+                    <table class="table table-sm">
+                        {% for food in brunch_all_food_today %}
+                            <tr class="text-center">
+                                <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
+                                <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
+                                <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
+                                <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
+                                <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
+                                <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Meat type</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Carbohydrate</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Protein</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
 
-    <div class="flex-box-row">
-    <h5 id="heading">Lunch</h5>
-    <table class="table table-sm">
-    {% for food in lunch_all_food_today %}
-    <tr class="text-center">
-      <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
-      <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
-      <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
-      <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
-      <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
-      <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
+                <div class="flex-box-row">
+                    <h5 id="heading">Lunch</h5>
+                    <table class="table table-sm">
+                        {% for food in lunch_all_food_today %}
+                            <tr class="text-center">
+                                <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
+                                <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
+                                <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
+                                <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
+                                <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
+                                <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-        <th scope="col">Meat type</th>
-      <th scope="col">Food</th>
-      <th scope="col">Calorie</th>
-      <th scope="col">Carbohydrate </th>
-      <th scope="col">Fats</th>
-      <th scope="col">Protein </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tbody>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Meat type</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Carbohydrate</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Protein</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
 
-    <div class="flex-box-row">
-    <h5 id="heading">Dinner</h5>
-    <table class="table table-sm">
-    {% for food in dinner_all_food_today %}
-    <tr class="text-center">
-      <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
-      <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
-      <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
-      <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
-      <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
-      <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
+                <div class="flex-box-row">
+                    <h5 id="heading">Dinner</h5>
+                    <table class="table table-sm">
+                        {% for food in dinner_all_food_today %}
+                            <tr class="text-center">
+                                <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
+                                <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
+                                <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
+                                <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
+                                <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
+                                <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-        <th scope="col">Meat type</th>
-      <th scope="col">Food</th>
-      <th scope="col">Calorie</th>
-      <th scope="col">Carbohydrate </th>
-      <th scope="col">Fats</th>
-      <th scope="col">Protein </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tbody>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Meat type</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Carbohydrate</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Protein</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
 
-    <div class="flex-box-row">
-    <h5 id="heading">Supper</h5>
-    <table class="table table-sm">
-    {% for food in supper_all_food_today %}
-    <tr class="text-center">
-      <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
-      <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
-      <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
-      <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
-      <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
-      <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
+                <div class="flex-box-row">
+                    <h5 id="heading">Supper</h5>
+                    <table class="table table-sm">
+                        {% for food in supper_all_food_today %}
+                            <tr class="text-center">
+                                <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
+                                <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
+                                <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
+                                <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
+                                <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
+                                <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <div class="container table-responsive py-5">
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr class="text-center">
-        <th scope="col">Meat type</th>
-      <th scope="col">Food</th>
-      <th scope="col">Calorie</th>
-      <th scope="col">Carbohydrate </th>
-      <th scope="col">Fats</th>
-      <th scope="col">Protein </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tbody>
+        <div class="container table-responsive py-5">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">Meat type</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Calorie</th>
+                    <th scope="col">Carbohydrate</th>
+                    <th scope="col">Fats</th>
+                    <th scope="col">Protein</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
 
-    <div class="flex-box-row">
-    <h5 id="heading">Snacks</h5>
-    <table class="table table-sm">
-    {% for food in snacks_all_food_today %}
-    <tr class="text-center">
-      <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
-      <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
-      <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
-      <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
-      <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
-      <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
-{##}
-{#{% endblock content %}#}
+                <div class="flex-box-row">
+                    <h5 id="heading">Snacks</h5>
+                    <table class="table table-sm">
+                        {% for food in snacks_all_food_today %}
+                            <tr class="text-center">
+                                <td style="width: 222.28px; border-color: black"> {{ food.meat_type }}</td>
+                                <td style="width: 133.7px; border-color: black"> {{ food.food.name }}</td>
+                                <td style="width: 170.49px; border-color: black"> {{ food.calorie_amount }}</td>
+                                <td style="width: 283.77px; border-color: black"> {{ food.food.carbohydrate }}</td>
+                                <td style="width: 122.43px; border-color: black"> {{ food.food.fats }}</td>
+                                <td style="width: 176.33px; border-color: black"> {{ food.food.protein }}</td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {##}
+        {#{% endblock content %}#}
 {% endblock content %}

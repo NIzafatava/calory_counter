@@ -7,18 +7,10 @@ class IsOwnerOrCanUpdateDelete(BasePermission):
         if request.method in SAFE_METHODS or obj.user == request.user:
             return True
 
-        if (
-            request.method in ["PUT", "PATCH"]
-            and request.user.is_staff
-            # and request.user.has_perm("calory_counter.chan")
-        ):
+        if request.method in ["PUT", "PATCH"] and request.user.is_staff:
             return True
 
-        if (
-            request.method in ["DELETE"]
-            and request.user.is_staff
-            # and request.user.has_perm("todolist.delete_post")
-        ):
+        if request.method in ["DELETE"] and request.user.is_staff:
             return True
 
         return False

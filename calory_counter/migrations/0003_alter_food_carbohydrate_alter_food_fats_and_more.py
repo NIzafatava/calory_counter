@@ -4,25 +4,30 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('calory_counter', '0002_food_measure'),
+        ("calory_counter", "0002_food_measure"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='food',
-            name='carbohydrate',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=5, null=True),
+            model_name="food",
+            name="carbohydrate",
+            field=models.DecimalField(
+                decimal_places=2, default=0, max_digits=5, null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='food',
-            name='fats',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=5, null=True),
+            model_name="food",
+            name="fats",
+            field=models.DecimalField(
+                decimal_places=2, default=0, max_digits=5, null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='food',
-            name='protein',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=5, null=True),
+            model_name="food",
+            name="protein",
+            field=models.DecimalField(
+                decimal_places=2, default=0, max_digits=5, null=True
+            ),
         ),
     ]

@@ -1,9 +1,7 @@
 from django import test
 from django.contrib.auth import get_user_model
-from django.core.files import File
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.conf import settings
 from rest_framework import status
+
 from ..models import Food, Exercise, Receipe
 
 User = get_user_model()
@@ -28,13 +26,15 @@ class TestAPICreateFood(test.TestCase):
         cls.user_data = user_data
 
         cls.food_data = {
-            'name':"food1",
-            'quantity': 1,
-            'calorie': 1000,
+            "name": "food1",
+            "quantity": 1,
+            "calorie": 1000,
         }
 
     def setUp(self) -> None:
-        self.superuser_tokens = self.client.post("/api/token", self.superuser_data).json()
+        self.superuser_tokens = self.client.post(
+            "/api/token", self.superuser_data
+        ).json()
         self.user_tokens = self.client.post("/api/token", self.user_data).json()
 
     def test_get_food_list(self):
@@ -49,6 +49,8 @@ class TestAPICreateFood(test.TestCase):
     def test_create_food_without_token(self):
         resp = self.client.post("/api/v1/foodlist/", self.food_data)
         self.assertEqual(resp.status_code, status.HTTP_401_UNAUTHORIZED)
+
+
 class TestAPICreateExercise(test.TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -67,12 +69,14 @@ class TestAPICreateExercise(test.TestCase):
         cls.user_data = user_data
 
         cls.exercise_data = {
-            'name':"recipe1",
-            'calorie': 1000,
+            "name": "recipe1",
+            "calorie": 1000,
         }
 
     def setUp(self) -> None:
-        self.superuser_tokens = self.client.post("/api/token", self.superuser_data).json()
+        self.superuser_tokens = self.client.post(
+            "/api/token", self.superuser_data
+        ).json()
         self.user_tokens = self.client.post("/api/token", self.user_data).json()
 
     def test_get_exercise_list(self):
@@ -89,13 +93,12 @@ class TestAPICreateExercise(test.TestCase):
         self.assertEqual(resp.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-
 class TestAPICreateRecipe(test.TestCase):
     @classmethod
     def setUpTestData(cls):
         Receipe.objects.create(
             name="recipe1",
-            content='recip1',
+            content="recip1",
         )
 
         superuser__data = {"username": "super", "password": "password"}
@@ -108,12 +111,14 @@ class TestAPICreateRecipe(test.TestCase):
         cls.user_data = user_data
 
         cls.recipe_data = {
-            'name':"recipe1",
-            'content': 'recip1',
+            "name": "recipe1",
+            "content": "recip1",
         }
 
     def setUp(self) -> None:
-        self.superuser_tokens = self.client.post("/api/token", self.superuser_data).json()
+        self.superuser_tokens = self.client.post(
+            "/api/token", self.superuser_data
+        ).json()
         self.user_tokens = self.client.post("/api/token", self.user_data).json()
 
     def test_get_recipe_list(self):

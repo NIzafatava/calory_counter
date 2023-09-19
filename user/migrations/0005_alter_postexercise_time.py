@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('user', '0004_profile_calorie_exercise_profile_exercises_selected_and_more'),
+        ("user", "0004_profile_calorie_exercise_profile_exercises_selected_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='postexercise',
-            name='time',
+            model_name="postexercise",
+            name="time",
             field=models.IntegerField(blank=True, default=1),
         ),
     ]

@@ -1,64 +1,73 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-<div class="row" style="margin-right: 200px;
+    <div class="container">
+        <div class="row" style="margin-right: 200px;
     margin-left: -15px;">
 
-    <div class="col-lg-6">
-    <div class="login">
-        <div class="login-screen">
-            <div class="app-title">
-                <h1 class="headline" style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px">Add New Exercise</h1>
+            <div class="col-lg-6">
+                <div class="login">
+                    <div class="login-screen">
+                        <div class="app-title">
+                            <h1 class="headline"
+                                style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px">Add New
+                                Exercise</h1>
+                        </div>
+
+                        <form method="POST" action="" class="login-form form-inline">
+                            {% csrf_token %}
+
+                            {% for field in form %}
+                                <h5 class="form-labels">
+                                    {{ field.label }}
+                                </h5>
+                                {{ field }}
+
+                            {% endfor %}
+
+                            <input class="btn mt-2"
+                                   style="background: black; font-family: Roboto, sans-serif; margin-top: 30px"
+                                   type="submit" value="add">
+
+                        </form>
+
+                        <form method="get">
+                            <h1 class="headline"
+                                style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px">{{ myFilter.form }}</h1>
+                            <button class="btn mt-2" style="background: black; font-family: Roboto, sans-serif;"
+                                    type="submit">Search
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
 
-            <form method="POST" action="" class="login-form form-inline">
-              {% csrf_token %}
-              
-                {% for field in form %}
-                <h5 class="form-labels">
-                {{ field.label }}
-                </h5>
-                {{ field }}
-                 
-                {% endfor %}
-           
-                <input class="btn mt-2" style="background: black; font-family: Roboto, sans-serif; margin-top: 30px" type="submit" value="add">
+            <div class="col-lg-6" style="max-width: 50%">
 
-            </form>
+                <h1 class="headline"
+                    style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px;margin-top: 30px;margin-left: 200px;">
+                    All Exercises</h1>
+                <table class="table table-bordered text-center mt-3" style="margin-left: 70px;">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Exercise Name</th>
+                        {#                    <th scope="col">Time (hours)</th>#}
+                        <th scope="col">Calories (for 1 hour)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for exercise in exercise_items %}
+                        <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.calorie }}</td>
 
-        <form method="get">
-                  <h1 class="headline"style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px">{{ myFilter.form }}</h1>
-                  <button class="btn mt-2" style="background: black; font-family: Roboto, sans-serif;" type="submit">Search</button>
-              </form>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-        
     </div>
-    </div>
-
-    <div class="col-lg-6" style="max-width: 50%">
-
-        <h1 class="headline" style="font-family: Roboto,sans-serif; font-size: 28px; margin-bottom: 30px;margin-top: 30px;margin-left: 200px;"> All Exercises</h1>
-        <table class="table table-bordered text-center mt-3" style="margin-left: 70px;">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Exercise Name</th>
-{#                    <th scope="col">Time (hours)</th>#}
-                    <th scope="col">Calories (for 1 hour)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for exercise in exercise_items %}
-                <tr>
-                    <td>{{ exercise.name }}</td>
-                    <td>{{ exercise.calorie }}</td>
-
-                    
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>  
-    </div>
-</div>
-</div>
 {% endblock content %}

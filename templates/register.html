@@ -8,43 +8,43 @@
             </div>
 
             <form method="POST" action="" class="login-form">
-              {% csrf_token %}
+                {% csrf_token %}
                 <div class="control-group">
-                {{ form.username }}
-                
+                    {{ form.username }}
+
                 </div>
 
                 <div class="control-group">
-                {{ form.email}}
-                </div>   
-                 <div class="control-group">
-                {{ form.password1 }}
-                </div> 
-                 <div class="control-group">
-                {{ form.password2 }}
-                </div> 
-                <input class="btn btn-primary btn-large btn-block" type="submit" style="background: black; font-family: Roboto, sans-serif;" name="Register">
+                    {{ form.email }}
+                </div>
+                <div class="control-group">
+                    {{ form.password1 }}
+                </div>
+                <div class="control-group">
+                    {{ form.password2 }}
+                </div>
+                <input class="btn btn-primary btn-large btn-block" type="submit"
+                       style="background: black; font-family: Roboto, sans-serif;" name="Register">
 
             </form>
             {{ form.errors }}
             <div class="d-flex justify-content-center links mt-8">
-            Already have an account? <a href="{% url 'user:login' %}" class="ml-4">Login</a>
-          </div>
+                Already have an account? <a href="{% url 'user:login' %}" class="ml-4">Login</a>
+            </div>
         </div>
     </div>
     <script>
-  
-    //Query All input fields
-    var form_fields = document.getElementsByTagName('input')
-    form_fields[1].placeholder='Username..';
-    form_fields[2].placeholder='Email..';
-    form_fields[3].placeholder='Enter password...';
-    form_fields[4].placeholder='Re-enter Password...';
+
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder = 'Username..';
+        form_fields[2].placeholder = 'Email..';
+        form_fields[3].placeholder = 'Enter password...';
+        form_fields[4].placeholder = 'Re-enter Password...';
 
 
-    for (var field in form_fields){ 
-      form_fields[field].className += ' form-control'
-    }
-  </script>
+        for (var field in form_fields) {
+            form_fields[field].className += ' form-control'
+        }
+    </script>
 
 {% endblock content %}

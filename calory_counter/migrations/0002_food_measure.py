@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('calory_counter', '0001_initial'),
+        ("calory_counter", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='food',
-            name='measure',
+            model_name="food",
+            name="measure",
             field=models.CharField(max_length=200, null=True),
         ),
     ]
