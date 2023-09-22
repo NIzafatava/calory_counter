@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="Black">
+    <option name="enabledOnReformat" value="true" />
+    <option name="enabledOnSave" value="true" />
+    <option name="sdkUUID" value="70098690-31e7-4732-ba4e-fdb3f186660d" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (djangoProject2)" project-jdk-type="Python SDK" />
 </project>
